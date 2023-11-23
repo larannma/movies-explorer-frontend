@@ -1,0 +1,86 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__title {
+  margin: 0 auto;
+  padding-top: 79px;
+  padding-bottom: 20px;
+  color: #A0A0A0;
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer__info {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #E8E8E8;
+}
+
+@media (max-width: 760px) {
+  .footer__info {
+    flex-direction: column-reverse;
+  }
+}
+
+.footer__year {
+  margin: 0;
+  margin-top: 20px;
+  color: #000;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 760px) {
+  .footer__year {
+    margin: 30px auto;
+    color: #A0A0A0;
+    font-size: 12px;
+  }
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+  color: #000;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 760px) {
+  .footer__links {
+    flex-direction: column;
+  }
+}
+
+.footer__yaPractikum {
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .footer__yaPractikum {
+    margin: 30px auto 0;  
+  }
+}
+
+.footer__github {
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .footer__github {
+    margin: 0 auto;  
+  }
+}

@@ -1,3 +1,22 @@
 .root {
   font-family: 'Inter', Courier, monospace;
 }
+
+.root__section{
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+@media (max-width: 910px) {
+  .root__section {
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+}
+
+@media (max-width: 760px) {
+  .root__section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
