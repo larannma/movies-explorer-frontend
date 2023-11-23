@@ -1,8 +1,14 @@
 .header{
-  margin: 0 auto;
-  background-color: #073042;
   box-sizing: border-box;
-  padding: 18px 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background-color: #073042;
+}
+
+.header__container {
+  margin: 0 auto;
+  max-width: 1140px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;

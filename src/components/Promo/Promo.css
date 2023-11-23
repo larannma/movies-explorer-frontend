@@ -1,28 +1,36 @@
 .promo {
   padding: 75px 70px 50px;
   background-color: #073042;
+
+}
+
+.promo__container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 @media (max-width: 910px) {
-  .promo {
+  .promo__container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 140px 44px 76px;
+    /* padding: 140px 44px 76px; */
   }
 }
 
-@media (max-width: 760px) {
-  .promo {
-    padding: 70px 10px 30px;
-  }
-}
 
 .promo__planetWEB {
+  height: 310px;
+}
 
+
+@media (max-width: 760px) {
+  .promo__planetWEB {
+    height: 210px;
+  }
 }
 
 .promo__info {

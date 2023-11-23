@@ -1,0 +1,128 @@
+.aboutProject {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.aboutProject__title {
+    margin: 0;
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.88px;
+    margin-bottom: 23px;
+}
+
+.aboutProject__stages {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 70px;
+    padding-bottom: 110px;
+    border-top: 1px solid #000;
+}
+
+.aboutProject__stage {
+    max-width: 550px;
+}
+
+.aboutProject__stageTitle {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.8px;
+    margin-bottom: 26px;
+}
+
+.aboutProject__stageSubtitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.aboutProject__timeline {
+    height: 36px;
+    width: 100%;
+    display: flex;
+
+}
+
+.aboutProject__backend {
+    width: 30%;
+    background-color: #2BE080;
+    height: 100%;
+    display: flex;
+}
+
+.aboutProject__frontend {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    background-color: #F2F2F2;
+}
+
+.aboutProject__length{
+    margin: auto;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.aboutProject__backend_blank {
+    background-color: transparent;
+    margin-top: 14px;
+}
+
+.aboutProject__length_blank {
+    color: #A0A0A0;
+}
+
+
+@media (max-width: 910px) {
+    .aboutProject__stages{
+        gap: 30px;
+        padding-bottom: 93px;
+    }
+
+    .aboutProject {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .aboutProject__title {
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 770px) {
+    .aboutProject__stages{
+        gap: 56px;
+        flex-direction: column;
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    .aboutProject {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .aboutProject__length{
+        font-size: 11px;
+    }
+
+    .aboutProject__title {
+        font-size: 18px;
+        margin-bottom: 28px;
+    }
+
+    .aboutProject__stageTitle {
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+
+    .aboutProject__backend_blank {
+        margin-top: 10px;
+    }
+}

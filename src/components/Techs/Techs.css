@@ -1,0 +1,126 @@
+.techs {
+    background-color: #F5F5F5;
+
+}
+
+.techs__title {
+    margin: 0;
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.88px;
+    margin-bottom: 23px;
+}
+
+.techs__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.techs__info {
+    border-top: 1px solid #000;
+    padding-top: 90px;
+}
+
+.techs__infoTitle {
+    margin: 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 58px;
+    letter-spacing: -2px;
+}
+
+.techs__subtitle {
+    max-width: 460px;
+    margin: 26px auto 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.56px;
+}
+
+.techs__stack {
+    /* display: flex;
+    justify-content: center; */
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 90px);
+    grid-template-rows: auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-top: 100px;
+}
+
+.techs__elem {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #E8E8E8;
+    display: flex;
+}
+
+.techs__elemTitle {
+    margin: 0;
+    margin: auto;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+    position: relative;
+}
+
+@media (max-width: 910px) {
+    .techs__container {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .techs__info{
+        padding-top: 80px;
+    }
+
+    .techs__subtitle{
+        margin-top: 22px;
+        font-size: 12px;
+    }
+
+    .techs__stack {
+        margin-top: 83px;
+    }
+}
+
+@media (max-width: 770px) {
+    .techs__container {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .techs__title {
+        margin-bottom: 28px;
+    }
+
+    .techs__infoTitle{
+        font-size: 30px;
+    }
+
+    .techs__info{
+        padding-top: 60px;
+    }
+
+    .techs__subtitle{
+        margin-top: 24px;
+        font-size: 11px;
+    }
+
+    .techs__stack {
+        margin-top: 50px;
+    }
+
+    .techs__elem {
+        height: 57px;
+        width: 84px;
+    }
+}
