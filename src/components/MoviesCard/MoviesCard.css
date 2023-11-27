@@ -54,14 +54,16 @@
   .movie-card__image{
     height: 190px;
   }
+
 }
 
 @media screen and (max-width: 760px){
-  .movie-card{
-    width: 300px;
 
-  }
   .movie-card__image{
     height: 168px;
+  }
+
+  .movie-card__name{
+    font-size: 12px;
   }
 }

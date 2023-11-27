@@ -1,10 +1,11 @@
 .search-form{
   max-width: 1140px;
+  width: 100%;
   padding-top: 70px;
   display: flex;
   flex-direction: column;
   padding-bottom: 48px;
-  margin: 0 auto;;
+  /* margin: 0 auto; */
 }
 
 .search-form__container{
@@ -30,6 +31,7 @@
 }
 
 .search-form__submit {
+  cursor: pointer;
   width: 58.65px;
   height: 34px;
   flex-shrink: 0;

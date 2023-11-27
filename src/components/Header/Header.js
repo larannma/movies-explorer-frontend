@@ -2,6 +2,7 @@ import useScreenWidth from '../useScreenWidth'
 import './Header.css'
 import greenCircle from '../../images/header__logo.svg'
 import AccountButton from "../AccountButton/AccountButton";
+import Navigation from '../Navigation/Navigation';
 
 function Header() {
   const windowWidth = useScreenWidth();
@@ -9,15 +10,12 @@ function Header() {
   let isLoggedIn = true;
   
   return (
-    <header className="header root__section header_theme_light">
+    <header className="header root__section ">
       <div className='header__container'>
         <img src={greenCircle} alt='green cercle'></img>
         {windowWidth > 770 & isLoggedIn ? 
           <>
-            <div className='header__navigation'>
-              <p className='header__navMovies'>Фильмы</p>
-              <p className='header__navMovies'>Сохранённые фильмы</p>
-            </div>
+            <Navigation/>
             <AccountButton/>
           </> : <></>
         }
