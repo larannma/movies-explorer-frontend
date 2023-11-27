@@ -3,7 +3,7 @@ import './Promo.css'
 
 function Promo() {
   return (
-    <main class='promo root__section'>
+    <div class='promo root__section'>
       <div className='promo__container'>
         <img className="promo__planetWEB" src={planetWEB} alt='planet from web words'></img>
         <div class='promo__info'>
@@ -12,7 +12,7 @@ function Promo() {
             <button class='promo__findMoreButton'>Узнать больше</button>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

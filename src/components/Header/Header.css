@@ -96,3 +96,11 @@
   font-weight: 500;
   line-height: 16px; /* 133.333% */
 }
+
+.header_theme_light {
+  background-color: #FFF;
+}
+
+.header__menu_theme_light {
+  background-image: url(../../images/menu_header_light.svg);
+}

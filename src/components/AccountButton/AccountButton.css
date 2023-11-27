@@ -25,11 +25,15 @@
 .account__loginCircle{
   margin-right: 3px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #F9F9F9;
   width: 26px;
   height: 26px;
   background-image: url(../../images/account__login-icon.svg);
   object-fit: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.account_theme_light {
+  background-color: #fff;
 }

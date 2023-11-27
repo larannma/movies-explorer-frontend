@@ -9,7 +9,7 @@ function Header() {
   let isLoggedIn = true;
   
   return (
-    <header className="header root__section">
+    <header className="header root__section header_theme_light">
       <div className='header__container'>
         <img src={greenCircle} alt='green cercle'></img>
         {windowWidth > 770 & isLoggedIn ? 
@@ -21,7 +21,7 @@ function Header() {
             <AccountButton/>
           </> : <></>
         }
-        {windowWidth <= 770 & isLoggedIn ? <button className="header__menu"></button> : <></>}
+        {windowWidth <= 770 & isLoggedIn ? <button className="header__menu header__menu_theme_light"></button> : <></>}
         {!isLoggedIn ?
           <div className="header__loginRegistration">
             <button className="header__registrationButton">Регистрация</button>
