@@ -3,8 +3,8 @@ import './Navigation.css'
 function Navigation() {
     return (
     <div className='navigation'>
-        <p className='navigation__item'>Фильмы</p>
-        <p className='navigation__item'>Сохранённые фильмы</p>
+        <a href='#main' className='navigation__item'>Фильмы</a>
+        <a href='#main' className='navigation__item'>Сохранённые фильмы</a>
     </div>
     )
 }

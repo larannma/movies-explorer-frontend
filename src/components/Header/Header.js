@@ -3,6 +3,7 @@ import './Header.css'
 import greenCircle from '../../images/header__logo.svg'
 import AccountButton from "../AccountButton/AccountButton";
 import Navigation from '../Navigation/Navigation';
+import Menu from '../Menu/Menu';
 
 function Header() {
   const windowWidth = useScreenWidth();
@@ -12,6 +13,7 @@ function Header() {
   return (
     <header className="header root__section ">
       <div className='header__container'>
+        <Menu/>
         <img src={greenCircle} alt='green cercle'></img>
         {windowWidth > 770 & isLoggedIn ? 
           <>

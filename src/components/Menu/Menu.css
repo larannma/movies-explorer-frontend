@@ -1,0 +1,26 @@
+.menu {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  position: fixed;
+  /* left: 0; */
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 300;
+  height: 100vh;
+  transition: right 1s;
+}
+
+.menu__hover {
+  opacity: 0.3;
+  background: #000;
+  min-width: 248px;
+}
+
+.menu__main{
+  background-color: #ffffff;
+  opacity: 1;
+  min-width: 520px;
+}
