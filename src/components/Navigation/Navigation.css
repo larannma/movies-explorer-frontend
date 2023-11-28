@@ -1,16 +1,26 @@
 .navigation {
     display: flex;
     gap: 16px;
+    
 }
 
 .navigation__item {
     margin: 0;
-    color: #FFF;
     text-align: right;
-    font-family: Inter;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
+    color: #FFF;
     text-decoration: none;
+}
+
+.navigation__item_theme_light {
+    color: #000;
+}
+
+.navigation_side {
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
 }

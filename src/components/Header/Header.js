@@ -1,3 +1,4 @@
+import React from "react";
 import useScreenWidth from '../useScreenWidth'
 import './Header.css'
 import greenCircle from '../../images/header__logo.svg'
@@ -6,26 +7,44 @@ import Navigation from '../Navigation/Navigation';
 import Menu from '../Menu/Menu';
 
 function Header() {
+  const [isMenuOpen, setMenu] = React.useState(false);
+  const [isLoggedIn, setLoggedIn] = React.useState(false)
+  const [isBurgerMenu, setBurgerMenu] = React.useState(false)
   const windowWidth = useScreenWidth();
 
-  let isLoggedIn = true;
+  React.useEffect(() => {
+    setBurgerMenu(windowWidth <= 768);
+  }, [windowWidth]);
+
+  function handleMenu() {
+    if (!isMenuOpen){
+      setMenu(true)
+    }
+    else {
+      setMenu(false);
+    }  
+  }
+
+  function login() {
+    setLoggedIn(true);
+  }
   
   return (
     <header className="header root__section ">
       <div className='header__container'>
-        <Menu/>
+        <Menu  isOpen={isMenuOpen} handleMenu={handleMenu} isBurgerMenu={isBurgerMenu}/>
         <img src={greenCircle} alt='green cercle'></img>
-        {windowWidth > 770 & isLoggedIn ? 
+        {windowWidth > 768 & isLoggedIn ? 
           <>
-            <Navigation/>
+            <Navigation isBurgerMenu={isBurgerMenu}/>
             <AccountButton/>
           </> : <></>
         }
-        {windowWidth <= 770 & isLoggedIn ? <button className="header__menu header__menu_theme_light"></button> : <></>}
+        {windowWidth <= 768 & isLoggedIn ? <button onClick={handleMenu} className="header__menu"></button> : <></>}
         {!isLoggedIn ?
           <div className="header__loginRegistration">
             <button className="header__registrationButton">Регистрация</button>
-            <button className="header__loginBotton">Войти</button>
+            <button onClick={login} className="header__loginBotton">Войти</button>
           </div> : <></>
         }
       </div>
