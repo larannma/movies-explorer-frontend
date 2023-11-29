@@ -63,10 +63,23 @@
   .protfolio__list{
     margin-top: 40px;
   }
+
+  .portfolio {
+    padding-bottom: 90px;
+  }
 }
 
 @media (max-width: 760px) {
   .portfolio__elemTitle{
     font-size: 18px;
+  }
+
+  .portfolio__elemButton{
+    width: 18px;
+    height: 28px;
+    background-image: url(../../images/smal-arrow.svg);
+  }
+  .portfolio__elem{
+    height: 38px;
   }
 }

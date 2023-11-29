@@ -9,6 +9,7 @@
   max-width: 1140px;
   margin: 0 auto;
   align-items: center;
+  margin-top: 70px;
 }
 
 @media (max-width: 910px) {

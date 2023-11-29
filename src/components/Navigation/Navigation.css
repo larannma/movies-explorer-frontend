@@ -24,3 +24,8 @@
     gap: 28px;
     align-items: center;
 }
+
+.navigation__bold {
+    font-size: 18px;
+    font-weight: 500;
+}

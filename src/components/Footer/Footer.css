@@ -85,4 +85,14 @@
   .footer__github {
     margin: 0 auto;  
   }
+
+  .footer__title{
+    font-size: 12px;
+  }
+  .footer{
+    padding-top: 45px;
+  }
+  .footer__links{
+    gap: 12px;
+  }
 }

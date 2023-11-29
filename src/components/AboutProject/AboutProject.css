@@ -93,6 +93,14 @@
     .aboutProject__title {
         margin-bottom: 22px;
     }
+
+    .aboutProject__stageTitle{
+        margin-bottom: 22px;
+    }
+
+    .aboutProject__stageSubtitle{
+        line-height: 18px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -123,5 +131,20 @@
 
     .aboutProject__backend_blank {
         margin-top: 10px;
+    }
+
+    .aboutProject__stageSubtitle {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    .aboutProject__backend {
+        width: 35%;
+    }
+
+    .aboutProject__frontend {
+        width: 65%;
     }
 }

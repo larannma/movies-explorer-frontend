@@ -3,6 +3,8 @@
   padding-top: 18px;
   padding-bottom: 18px;
   background-color: #073042;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .header__container {
@@ -12,18 +14,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-@media screen and (max-width: 768px){
-  .header {
-    padding: 18px 30px;
-  }
-}
-
-@media screen and (max-width: 500px){
-  .header {
-    padding: 18px 14px;
-  }
 }
 
 .header__navigation {
@@ -59,12 +49,6 @@
 .header__loginRegistration{
   display: flex;
   gap: 30px;
-}
-
-@media screen and (max-width: 500px){
-  .header__loginRegistration {
-    gap: 14px;
-  }
 }
 
 .header__registrationButton{
@@ -103,4 +87,25 @@
 
 .header__menu_theme_light {
   background-image: url(../../images/menu_header_light.svg);
+}
+
+@media screen and (max-width: 768px){
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .header {
+    padding: 18px 14px;
+  }
+
+  .header__loginBotton{
+    width: 54px;
+    height: 26px;
+  }
+
+  .header__loginRegistration {
+    gap: 14px;
+  }
 }

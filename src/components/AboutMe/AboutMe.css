@@ -75,6 +75,10 @@
   }
   .aboutMe__name {
     font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 100% */
+    letter-spacing: -1.6px;
   }
 
   .aboutMe__occupation {
@@ -84,12 +88,16 @@
 
   .aboutMe__life {
     font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
   }
 
   .aboutMe__link{
     margin-top: 87px;
   }
   .aboutMe{
+    padding-top: 90px;
     padding-bottom: 91px;
   }
 }
@@ -123,9 +131,16 @@
 
   .aboutMe__link{
     margin-top: 40px;
+    font-size: 14px;
   }
+
   .aboutMe{
+    padding-top: 70px;
     padding-bottom: 70px;
+  }
+
+  .aboutMe__container{
+    padding-top: 60px;
   }
 
 }
