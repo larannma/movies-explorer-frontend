@@ -74,7 +74,7 @@
 
 @media (max-width: 910px) {
     .techs__container {
-        padding-top: 90px;
+        padding-top: 100px;
         padding-bottom: 90px;
     }
 
@@ -89,10 +89,19 @@
 
     .techs__stack {
         margin-top: 83px;
+        grid-template-columns: repeat(auto-fit, 84px);
+    }
+
+    .techs__elemTitle {
+        font-size: 12px;
+    }
+    .techs__elem {
+        width: 84px;
+        height: 57px;
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 767px) {
     .techs__container {
         padding-top: 70px;
         padding-bottom: 70px;
@@ -117,6 +126,7 @@
 
     .techs__stack {
         margin-top: 50px;
+        justify-content: space-between;
     }
 
     .techs__elem {

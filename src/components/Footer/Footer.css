@@ -3,11 +3,11 @@
   flex-direction: column;
   max-width: 1140px;
   margin: 0 auto;
+  padding-top: 60px;
 }
 
 .footer__title {
   margin: 0 auto;
-  padding-top: 79px;
   padding-bottom: 20px;
   color: #A0A0A0;
   text-align: center;

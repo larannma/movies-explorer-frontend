@@ -15,6 +15,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .root__section {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
 @media (max-width: 760px) {
   .root__section {
     padding-left: 18px;

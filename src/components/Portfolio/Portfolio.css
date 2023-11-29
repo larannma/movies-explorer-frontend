@@ -1,6 +1,7 @@
 .portfolio {
   max-width: 1140px;
   margin: 0 auto;
+  padding-bottom: 125px;
 }
 
 .portfolio__title {
@@ -21,12 +22,17 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 9px;
   /* margin-bottom: 20px; */
 }
 
 .protfolio__list > :nth-child(2) {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.protfolio__list > :nth-child(3) {
+  border: none;
 }
 
 .portfolio__elemTitle {

@@ -30,7 +30,7 @@ function Header() {
   }
   
   return (
-    <header className="header root__section ">
+    <header className="header">
       <div className='header__container'>
         <Menu  isOpen={isMenuOpen} handleMenu={handleMenu} isBurgerMenu={isBurgerMenu}/>
         <img src={greenCircle} alt='green cercle'></img>
