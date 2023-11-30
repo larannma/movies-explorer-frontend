@@ -9,6 +9,7 @@
 }
 
 .profile__title {
+  margin: 0;
   font-size: 24px;
   font-weight: 500;
 }
@@ -57,7 +58,47 @@
   margin: 0 auto;
   left: 50%;
   width: 410px;
-
   left: 50%;
   transform: translate(-50%, -50%);
+  gap: 16px;
+}
+
+.profile__button {
+  font-size: 13px;
+  font-weight: 400;
+  background-color: transparent;
+  border: none;
+}
+
+.profile__exitButton {
+  color: #FF3055;
+}
+
+@media (max-width: 910px){
+  .profile {
+    margin-top: 236px;
+  }
+
+  .profile__editForm {
+    margin-top: 96px;
+  }
+
+  .profile__buttonContainer {
+    bottom: 245px;
+  }
+}
+
+@media (max-width: 760px){
+  .profile {
+    margin-top: 70px;
+    max-width: 260px;
+  }
+
+  .profile__editForm {
+    margin-top: 80px;
+  }
+
+  .profile__buttonContainer {
+    bottom: 40px;
+  }
 }

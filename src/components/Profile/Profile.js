@@ -17,8 +17,8 @@ function Profile() {
             <input placeholder='pochta@yandex.ru' className='profile__input'></input>
           </div>
           <div className='profile__buttonContainer'>
-            <button>Редактировать</button>
-            <button>Выйти из аккаунта</button>
+            <button className='profile__editButton profile__button'>Редактировать</button>
+            <button className='profile__exitButton profile__button'>Выйти из аккаунта</button>
           </div>
         </form>
       </div>
