@@ -25,4 +25,7 @@
       grid-template-columns: repeat(auto-fit, 300px);
       row-gap: 34px;
   }
+  .movies-card-list{
+    margin-top: 40px;
+  }
 }

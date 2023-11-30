@@ -1,16 +1,15 @@
-import Header from '../Header/Header'
 import Main from '../Main/Main';
-import Footer from '../Footer/Footer'
 import Movies from '../Movies/Movies';
+import Profile from '../Profile/Profile'
 import './App.css'
 
 function App() {
+
   return (
     <div className="App root">
-      <Header/>
       {/* <Main/> */}
-      <Movies/>
-      <Footer/>
+      {/* <Movies/> */}
+      <Profile/>
     </div>
   );
 }

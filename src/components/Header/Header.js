@@ -6,7 +6,7 @@ import AccountButton from "../AccountButton/AccountButton";
 import Navigation from '../Navigation/Navigation';
 import Menu from '../Menu/Menu';
 
-function Header() {
+function Header({ headerColor }) {
   const [isMenuOpen, setMenu] = React.useState(false);
   const [isLoggedIn, setLoggedIn] = React.useState(false)
   const [isBurgerMenu, setBurgerMenu] = React.useState(false)
@@ -30,17 +30,17 @@ function Header() {
   }
   
   return (
-    <header className="header">
+    <header className={`header ${headerColor === 'light' ? 'header_theme_light' : ''}`}>
       <div className='header__container'>
         <Menu  isOpen={isMenuOpen} handleMenu={handleMenu} isBurgerMenu={isBurgerMenu}/>
         <img src={greenCircle} alt='green cercle'></img>
         {windowWidth > 768 & isLoggedIn ? 
           <>
-            <Navigation isBurgerMenu={isBurgerMenu}/>
+            <Navigation isBurgerMenu={isBurgerMenu} isThemeLight={headerColor}/>
             <AccountButton/>
           </> : <></>
         }
-        {windowWidth <= 768 & isLoggedIn ? <button onClick={handleMenu} className="header__menu"></button> : <></>}
+        {windowWidth <= 768 & isLoggedIn ? <button onClick={handleMenu} className={`header__menu ${headerColor === 'light' ? 'header__menu_theme_light' : ''}`}></button> : <></>}
         {!isLoggedIn ?
           <div className="header__loginRegistration">
             <button className="header__registrationButton">Регистрация</button>

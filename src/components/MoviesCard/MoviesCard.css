@@ -14,10 +14,10 @@
 }
 
 .movie-card__info {
-  margin-top: 14px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 29px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #E8E8E8;
 }
 
@@ -34,11 +34,21 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-image: url(../../images/save1.svg);
+  background-image: url(../../images/unsaved.svg);
   background-position: center;
   border: none;
   object-fit: cover;
+  transition: background-image 0.2s ease-in-out;
 }
+
+.movie-card__saveButton:hover {
+  background-image: url(../../images/save1.svg);
+}
+
+.movie-card__unsaveButton:hover {
+  background-image: url(../../images/unsave.svg);
+}
+
 
 .movie-card__length {
   margin: 0;

@@ -21,6 +21,10 @@
   gap: 16px;
 }
 
+.header_theme_light{
+  background-color: #FFF;
+}
+
 .header__navMovies {
   margin: 0;
   color: #FFF;

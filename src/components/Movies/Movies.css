@@ -15,10 +15,17 @@
     background: #F9F9F9;
     margin-top: 50px;
     margin-bottom:  80px;
+    transition: opacity 0.2 ease-in-out;
 }
+
+.movies__moreButton:hover{
+    opacity: 0.8;
+}
+
 
 @media screen and (max-width: 760px) {
     .movies__moreButton {
         width: 240px;
     }
+
 }

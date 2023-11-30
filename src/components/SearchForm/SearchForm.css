@@ -43,6 +43,11 @@
   font-weight: 500;
   line-height: 18px;
   border: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.search-form__submit:hover {
+  opacity: 0.8;
 }
 
 .search-form__shorts {
@@ -93,4 +98,8 @@
     padding-top: 90px;
     padding-bottom: 51px;
   } 
+  
+  .search-form__shortsTitle{
+    font-size: 11px;
+  }
 }
