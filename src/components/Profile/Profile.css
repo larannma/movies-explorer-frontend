@@ -43,6 +43,7 @@
 
 .profile__input:focus{
   outline: none;
+  border-bottom: 1px solid #2BE080;
 }
 
 .profile__inputTitle {
@@ -52,7 +53,7 @@
 }
 
 .profile__buttonContainer {
-  margin-top: 200px;
+  margin-top: 185px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -84,7 +85,7 @@
   }
 
   .profile__buttonContainer{
-    margin-top: 190px;
+    margin-top: 170px;
   }
 }
 
@@ -103,6 +104,12 @@
   }
 
   .profile__buttonContainer{
-    margin-top: 360px;
+    margin-top: 340px;
+  }
+
+  .profile__button{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
   }
 }

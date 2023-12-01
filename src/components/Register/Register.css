@@ -33,6 +33,7 @@
 }
 
 .register__inputTitle {
+    display:block;
     margin: 0;
     padding-top: 5px;
     color: #A0A0A0;
@@ -50,7 +51,8 @@
 
 .register__input:focus{
     outline: none;
-  }
+    border-bottom: 1px solid #2BE080;
+}
 
 .register__submitButton {
     margin-top: 134px;

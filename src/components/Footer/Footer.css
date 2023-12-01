@@ -26,6 +26,10 @@
   border-top: 1px solid #E8E8E8;
 }
 
+.footer__links{
+  list-style-type: none;
+}
+
 @media (max-width: 910px) {
   .footer {
     padding-left: 30px;

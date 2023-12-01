@@ -11,27 +11,27 @@ function Register() {
 
 
     return (
-        <div className='register'>
+        <main className='register'>
             <Logo/>
             <h1 className='register__title'>Добро пожаловать!</h1>
             <form className='register__form'>
                 <div className='register__inputConiainer'>
-                    <p className='register__inputTitle'>Имя</p>
-                    <input className='register__input' placeholder='Виталий'></input>
+                    <label className='register__inputTitle'>Имя</label>
+                    <input className='register__input' placeholder='Виталий' required minLength={2} maxLength={40}></input>
                 </div>
                 <div className='register__inputConiainer'>
-                    <p className='register__inputTitle'>E-mail</p>
-                    <input className='register__input' placeholder='pochta@yandex.ru'></input>
+                    <label className='register__inputTitle'>E-mail</label>
+                    <input className='register__input' placeholder='pochta@yandex.ru' required></input>
                 </div>
                 <div className='register__inputConiainer'>
-                    <p className='register__inputTitle'>Пароль</p>
-                    <input className='register__input' type="password"></input>
+                    <label className='register__inputTitle'>Пароль</label>
+                    <input className='register__input' type="password" required minLength={8} maxLength={40}></input>
                 </div>
                 <p className='register__errorMessage'>Что-то пошло не так...</p>
-                <button className='register__submitButton'>Зарегистрироваться</button>
+                <button type='submit' className='register__submitButton'>Зарегистрироваться</button>
                 <p className='register__subtitle'>Уже зарегистрированы? <p className='register__subtitleLink' onClick={goLogin}>Войти</p></p>
             </form>
-        </div>
+        </main>
     )
 }
 
