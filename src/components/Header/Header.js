@@ -5,12 +5,16 @@ import greenCircle from '../../images/header__logo.svg'
 import AccountButton from "../AccountButton/AccountButton";
 import Navigation from '../Navigation/Navigation';
 import Menu from '../Menu/Menu';
+import { useNavigate } from "react-router-dom";
 
 function Header({ headerColor }) {
   const [isMenuOpen, setMenu] = React.useState(false);
-  const [isLoggedIn, setLoggedIn] = React.useState(false)
+  const [isLoggedIn, setLoggedIn] = React.useState(true)
   const [isBurgerMenu, setBurgerMenu] = React.useState(false)
   const windowWidth = useScreenWidth();
+
+  const navigate = useNavigate();
+
 
   React.useEffect(() => {
     setBurgerMenu(windowWidth <= 768);
@@ -28,6 +32,14 @@ function Header({ headerColor }) {
   function login() {
     setLoggedIn(true);
   }
+
+  function goRegister () {
+    navigate('/signup', { replace: true });
+  }
+
+  // function goLogin () {
+  //   navigate('/signin', { replace: true });
+  // }
   
   return (
     <header className={`header ${headerColor === 'light' ? 'header_theme_light' : ''}`}>
@@ -43,7 +55,7 @@ function Header({ headerColor }) {
         {windowWidth <= 768 & isLoggedIn ? <button onClick={handleMenu} className={`header__menu ${headerColor === 'light' ? 'header__menu_theme_light' : ''}`}></button> : <></>}
         {!isLoggedIn ?
           <div className="header__loginRegistration">
-            <button className="header__registrationButton">Регистрация</button>
+            <button onClick={goRegister} className="header__registrationButton">Регистрация</button>
             <button onClick={login} className="header__loginBotton">Войти</button>
           </div> : <></>
         }
