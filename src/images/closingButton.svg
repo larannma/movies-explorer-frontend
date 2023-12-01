@@ -1,6 +1,1 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Group ">
-<rect id="text__COLOR:font-main" x="7.16064" y="9.28247" width="3" height="22" transform="rotate(-45 7.16064 9.28247)" fill="black"/>
-<rect id="text__COLOR:font-main_2" x="22.7173" y="7.16113" width="3" height="22" transform="rotate(45 22.7173 7.16113)" fill="black"/>
-</g>
-</svg>
+<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="#000"><path d="M7.16 9.282 9.283 7.16l15.556 15.556-2.121 2.121z"/><path d="m22.717 7.16 2.122 2.122L9.282 24.838l-2.121-2.12z"/></g></svg>
