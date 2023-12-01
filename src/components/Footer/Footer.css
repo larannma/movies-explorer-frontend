@@ -24,6 +24,23 @@
   border-top: 1px solid #E8E8E8;
 }
 
+@media (max-width: 910px) {
+  .footer {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.footer__yaPractikum{
+  text-decoration: none;
+  color: #000;
+}
+
+.footer__github {
+  text-decoration: none;
+  color: #000;
+}
+
 @media (max-width: 760px) {
   .footer__info {
     flex-direction: column-reverse;
@@ -90,10 +107,17 @@
   .footer__title{
     font-size: 12px;
   }
+
   .footer{
     padding-top: 45px;
   }
+
   .footer__links{
     gap: 12px;
+  }
+
+  .footer {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

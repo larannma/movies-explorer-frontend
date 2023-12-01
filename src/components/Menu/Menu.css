@@ -80,4 +80,14 @@
   .menu__main {
     width: 100%;
   }
+
+  .menu__close{
+    right: 18px;
+    top: 18px;
+  }
+
+  .menu__main{
+    padding-top: 144px;
+    padding-bottom: 46px;
+  }
 }

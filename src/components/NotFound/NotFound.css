@@ -21,6 +21,7 @@
 }
 
 .not-found__back {
+    cursor: pointer;
     color: #3456F3;
     font-size: 14px;
     font-weight: 400;

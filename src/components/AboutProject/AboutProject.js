@@ -2,7 +2,7 @@ import './AboutProject.css'
 
 function AboutProject() {
   return (
-    <div id='anchor' className="aboutProject root__section">
+    <section id='anchor' className="aboutProject root__section">
       <h2 className="aboutProject__title">О проекте</h2>
       <div className="aboutProject__stages">
         <div className="aboutProject__stage">
@@ -20,9 +20,9 @@ function AboutProject() {
       </div>
       <div className="aboutProject__timeline">
         <div className="aboutProject__backend aboutProject__backend_blank"><p className='aboutProject__length aboutProject__length_blank'>Back-end</p></div>
-        <div className="aboutProject__frontend aboutProject__backend_blank"><p className='aboutProject__length aboutProject__length_blank'>Front-end</p></div>
+        <div className="aboutProject__frontend aboutProject__frontend_blank"><p className='aboutProject__length aboutProject__length_blank'>Front-end</p></div>
       </div>
-    </div>
+    </section>
   )
 }
 

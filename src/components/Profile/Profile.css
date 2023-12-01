@@ -6,6 +6,7 @@
   margin: 74px auto 70px;
   /* border: solid red; */
   position: relative;
+  justify-content: center;
 }
 
 .profile__title {
@@ -51,15 +52,10 @@
 }
 
 .profile__buttonContainer {
-  position: fixed;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
-  bottom: 70px;
-  margin: 0 auto;
-  left: 50%;
-  width: 410px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
   gap: 16px;
 }
 
@@ -86,6 +82,10 @@
   .profile__buttonContainer {
     bottom: 245px;
   }
+
+  .profile__buttonContainer{
+    margin-top: 190px;
+  }
 }
 
 @media (max-width: 760px){
@@ -100,5 +100,9 @@
 
   .profile__buttonContainer {
     bottom: 40px;
+  }
+
+  .profile__buttonContainer{
+    margin-top: 360px;
   }
 }

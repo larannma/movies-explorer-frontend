@@ -9,10 +9,10 @@ function AccountButton() {
   }
 
   return(
-    <button onClick={goProfile} className='account__loginContainer account_theme_light'>
+    <div onClick={goProfile} className='account account_theme_light'>
       <p className='account__loginTitle'>Аккаунт</p>
       <div className='account__loginCircle'></div>
-    </button>
+    </div>
   )
 }
 

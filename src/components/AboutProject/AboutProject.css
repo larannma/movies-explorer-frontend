@@ -74,6 +74,11 @@
     margin-top: 14px;
 }
 
+.aboutProject__frontend_blank{
+    background-color: transparent;
+    margin-top: 14px;
+}
+
 .aboutProject__length_blank {
     color: #A0A0A0;
 }

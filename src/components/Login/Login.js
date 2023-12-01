@@ -1,13 +1,9 @@
 import './Login.css'
-import logoImage from '../../images/header__logo.svg'
+import Logo from '../Logo/Logo';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
     const navigate = useNavigate();
-
-    function goMain() {
-        navigate('/', { replace: true });
-    }
 
     function goRegister() {
         navigate('/signup', { replace: true });
@@ -15,7 +11,7 @@ function Login() {
 
     return (
         <div className='login'>
-            <img src={logoImage} className='login__logo' alt='green circle'></img>
+            <Logo/>
             <h1 className='login__title'>Добро пожаловать!</h1>
             <form className='login__form'>
                 <div className='login__inputConiainer'>
@@ -27,8 +23,8 @@ function Login() {
                     <input className='login__input' type="password"></input>
                 </div>
                 <p className='login__errorMessage'>Что-то пошло не так...</p>
-                <button className='login__submitButton' onClick={goMain}>Войти</button>
-                <p className='login__subtitle'>Еще не зарегистрированы? <a className='login__subtitleLink' onClick={goRegister}>Регистрация</a></p>
+                <button className='login__submitButton'>Войти</button>
+                <p className='login__subtitle'>Еще не зарегистрированы? <p className='login__subtitleLink' onClick={goRegister}>Регистрация</p></p>
             </form>
             
         </div>

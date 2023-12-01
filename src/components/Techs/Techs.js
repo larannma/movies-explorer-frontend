@@ -1,7 +1,7 @@
 import './Techs.css'
 function Techs() {
     return (
-        <div className='root__section techs'>
+        <section className='root__section techs'>
             <div className='techs__container'>
                 <div className='techs__title'>Технологии</div>
                 <div className='techs__info'>
@@ -32,7 +32,7 @@ function Techs() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
