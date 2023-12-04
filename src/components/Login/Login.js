@@ -1,14 +1,7 @@
 import './Login.css'
 import Logo from '../Logo/Logo';
-import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const navigate = useNavigate();
-
-    function goRegister() {
-        navigate('/signup', { replace: true });
-    }
-
     return (
         <main className='login'>
             <Logo/>
@@ -20,10 +13,10 @@ function Login() {
                 </div>
                 <div className='login__inputConiainer'>
                     <label className='login__inputTitle'>Пароль</label>
-                    <input className='login__input' type="password" minLength={8} maxLength={40} required placeholder="●●●●●●●●"></input>
+                    <input className='login__input' type="password" minLength={8} maxLength={40} required placeholder="••••••••••••••"></input>
                 </div>
                 <button className='login__submitButton'>Войти</button>
-                <p className='login__subtitle'>Еще не зарегистрированы?  <p className='login__subtitleLink' onClick={goRegister}> Регистрация</p></p>
+                <p className='login__subtitle'>Еще не зарегистрированы?  <a href='./signup' className='login__subtitleLink'> Регистрация</a></p>
             </form>
             
         </main>

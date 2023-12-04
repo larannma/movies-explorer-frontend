@@ -78,6 +78,11 @@
   font-weight: 500;
   line-height: 16px; /* 133.333% */
   cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.header__registrationButton:hover{
+  opacity: 0.8;
 }
 
 .header__loginBotton {
@@ -94,6 +99,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px; /* 133.333% */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.header__loginBotton:hover{
+  opacity: 0.7;
 }
 
 .header_theme_light {

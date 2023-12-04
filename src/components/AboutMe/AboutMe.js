@@ -6,7 +6,7 @@ function AboutMe() {
     <section className='aboutMe root__section'>
       <h2 className='aboutMe__title'>Студент</h2>
       <div className='aboutMe__container'>
-        <img src={profileImage} alt="man's posing" className='aboutMe__profileImage'></img>
+        <img src={profileImage} alt="мальчик со светлыми волосами(автор страницы)" className='aboutMe__profileImage'></img>
         <div className='aboutMe__description'>
           <h3 className='aboutMe__name'>Виталий</h3>
           <p className='aboutMe__occupation'>Фронтенд-разработчик, 30 лет</p>

@@ -10,7 +10,7 @@ function Logo() {
     }
 
     return(
-        <img src={greenCircle} alt='green cercle' className="logo" onClick={goMain}></img>
+        <img src={greenCircle} alt='зеленый круг' className="logo" onClick={goMain}></img>
     )
 }
 

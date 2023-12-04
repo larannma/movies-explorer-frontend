@@ -101,8 +101,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.2s ease-in-out;
 }
 
+.promo__findMore:hover {
+  opacity: 0.3;
+}
 
 @media (max-width: 768px) {
   .promo {

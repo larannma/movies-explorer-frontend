@@ -1,15 +1,7 @@
 import './Register.css'
 import Logo from '../Logo/Logo';
-import { useNavigate } from "react-router-dom";
 
 function Register() {
-    const navigate = useNavigate();
-
-    function goLogin() {
-        navigate('/signin', { replace: true });
-    }
-
-
     return (
         <main className='register'>
             <Logo/>
@@ -25,11 +17,11 @@ function Register() {
                 </div>
                 <div className='register__inputConiainer'>
                     <label className='register__inputTitle'>Пароль</label>
-                    <input className='register__input' type="password" required minLength={8} maxLength={40} placeholder="●●●●●●●●"></input>
+                    <input className='register__input' type="password" required minLength={8} maxLength={40} placeholder="••••••••••••••"></input>
                 </div>
                 <p className='register__errorMessage'>Что-то пошло не так...</p>
                 <button type='submit' className='register__submitButton'>Зарегистрироваться</button>
-                <p className='register__subtitle'>Уже зарегистрированы? <p className='register__subtitleLink' onClick={goLogin}>Войти</p></p>
+                <p className='register__subtitle'>Уже зарегистрированы? <a href='./' className='register__subtitleLink'>Войти</a></p>
             </form>
         </main>
     )

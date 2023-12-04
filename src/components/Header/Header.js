@@ -55,8 +55,8 @@ function Header({ headerColor }) {
         {windowWidth <= 768 & isLoggedIn ? <button onClick={handleMenu} className={`header__menu ${headerColor === 'light' ? 'header__menu_theme_light' : ''}`}></button> : <></>}
         {!isLoggedIn ?
           <nav className="header__loginRegistration">
-            <button onClick={goRegister} className="header__registrationButton">Регистрация</button>
-            <button onClick={goLogin} className="header__loginBotton">Войти</button>
+            <button type="button" onClick={goRegister} className="header__registrationButton">Регистрация</button>
+            <button type="button" onClick={goLogin} className="header__loginBotton">Войти</button>
           </nav> : <></>
         }
       </div>
