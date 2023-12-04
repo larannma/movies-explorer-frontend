@@ -9,13 +9,15 @@ import Footer from '../Footer/Footer'
 function Movies() {
   return (
     <>
-    <Header headerColor={'light'}/>
-    <main className='root__section-movies movies'>
-      <SearchForm/>
-      <MoviesCardList/>
-      {/* <Preloader/> */}
-      <button className='movies__moreButton'>Еще</button>
-    </main>
+    <div className='content'>
+      <Header headerColor={'light'}/>
+      <main className='movies'>
+        <SearchForm/>
+        <MoviesCardList/>
+        {/* <Preloader/> */}
+        <button className='movies__moreButton' type='button'>Еще</button>
+      </main>
+    </div>
     <Footer/>
     </>
   )

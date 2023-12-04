@@ -6,7 +6,7 @@ import useScreenWidth from '../useScreenWidth'
 function Menu({ isOpen, handleMenu, isBurgerMenu }) {
   const windowWidth = useScreenWidth();
   return (
-    <div className={`menu  ${isOpen & windowWidth <= 768 ? "menu__visible": ""}`}>
+    <div className={`menu  ${isOpen & windowWidth <= 768 ? "menu_visible": ""}`}>
       <div className={`menu__hover ${!isOpen ? 'menu__hover_opacity-none' : ''}`}>
 
       </div>

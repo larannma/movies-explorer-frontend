@@ -1,10 +1,13 @@
+.profilePage{
+  width: 100%;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 410px;
+  width: 410px;
   margin: 74px auto 70px;
-  /* border: solid red; */
   position: relative;
   justify-content: center;
 }

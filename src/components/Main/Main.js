@@ -11,7 +11,7 @@ function Main() {
   return (
     <>
       <Header/>
-      <main>
+      <main className='main'>
         <Promo/>
         <AboutProject/>
         <Techs/>

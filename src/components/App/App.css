@@ -1,11 +1,17 @@
 .root {
   font-family: 'Inter', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-between;
 }
 
 .root__section{
   padding-left: 70px;
   padding-right: 70px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .root__section-movies {

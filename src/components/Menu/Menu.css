@@ -11,7 +11,7 @@
   display: flex;
 }
 
-.menu__visible {
+.menu_visible {
   transform: translateX(0);
 }
 
@@ -23,7 +23,7 @@
   height: 100%;
 }
 
-.menu__visible .menu__hover {
+.menu_visible .menu__hover {
   opacity: 0.3;
 }
 

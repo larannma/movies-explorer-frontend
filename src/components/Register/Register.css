@@ -1,5 +1,5 @@
 .register {
-    max-width: 396px;
+    width: 396px;
     margin: 70px auto;
     display: flex;
     flex-direction: column;
@@ -70,9 +70,13 @@
     text-align: center;
     font-size: 14px;
     font-weight: 400;
+    display: flex;
+    align-self: center;
 }
 
 .register__subtitleLink {
+    margin: 0;
+    margin-left: 6px;
     color: #3456F3;
     text-align: center;
     font-size: 14px;
@@ -103,5 +107,9 @@
 
     .register__submitButton{
         margin-top: 222px;
+    }
+
+    .register__subtitle{
+        font-size: 12px;
     }
 }

@@ -1,6 +1,7 @@
 .promo {
   padding: 75px 70px;
   background-color: #073042;
+  /* width: 100%; */
 }
 
 .promo__container {
@@ -16,7 +17,6 @@
 }
 
 
-
 .promo__info {
   display: flex;
   flex-direction: column;
@@ -27,16 +27,16 @@
   margin: 0;
   max-width: 640px;
   color: #FFF;
-  font-feature-settings: 'clig' off, 'liga' off;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
   line-height: 58px;
+  vertical-align: text-top;
 }
 
 @media (max-width: 910px) {
   .promo__title {
-    margin-top: 48px;
+    margin-top: 40px;
     font-size: 40px;
     line-height: 50px;
     text-align: center;
@@ -75,7 +75,7 @@
   font-weight: 400;
   line-height: normal;
   opacity: 0.5;
-  margin-top: 36px;
+  margin-top: 32px;
   margin-bottom: 146px;
 }
 
@@ -133,12 +133,12 @@
   }
 
   .promo {
-    padding-top: 75px;
+    padding-top: 65px;
     padding-bottom: 30px;
   }
 
   .promo__subtitle{
     margin-top: 24px;
-    margin-bottom: 80px;
+    margin-bottom: 75px;
   }
 }

@@ -8,12 +8,15 @@ import Footer from '../Footer/Footer'
 function SavedMovies() {
   return (
     <>
-    <Header headerColor={'light'}/>
-    <main className='root__section-movies movies'>
-      <SearchForm/>
-      <MoviesCardList/>
-      <button className='movies__moreButton'>Еще</button>
-    </main>
+    <div className='content'>
+      <Header headerColor={'light'}/>
+      <main className='saved-movies'>
+        <SearchForm/>
+        <MoviesCardList/>
+        {/* <Preloader/> */}
+        <button className='saved-movies__moreButton' type='button'>Еще</button>
+      </main>
+    </div>
     <Footer/>
     </>
   )

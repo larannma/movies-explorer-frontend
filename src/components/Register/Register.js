@@ -25,7 +25,7 @@ function Register() {
                 </div>
                 <div className='register__inputConiainer'>
                     <label className='register__inputTitle'>Пароль</label>
-                    <input className='register__input' type="password" required minLength={8} maxLength={40}></input>
+                    <input className='register__input' type="password" required minLength={8} maxLength={40} placeholder="●●●●●●●●"></input>
                 </div>
                 <p className='register__errorMessage'>Что-то пошло не так...</p>
                 <button type='submit' className='register__submitButton'>Зарегистрироваться</button>

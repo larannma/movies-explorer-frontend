@@ -1,11 +1,11 @@
 .search-form{
   max-width: 1140px;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 65px;
   display: flex;
   flex-direction: column;
   padding-bottom: 48px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .search-form__container{
@@ -80,7 +80,7 @@
   }
 
   .search-form {
-    padding-top: 80px;
+    padding-top: 75px;
     padding-bottom: 61px;
   }
 }
@@ -96,11 +96,12 @@
   }
 
   .search-form {
-    padding-top: 90px;
+    padding-top: 80px;
     padding-bottom: 51px;
   } 
   
   .search-form__shortsTitle{
     font-size: 11px;
   }
+
 }

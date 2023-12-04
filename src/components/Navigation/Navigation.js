@@ -14,8 +14,8 @@ function Navigation({ isBurgerMenu, isThemeLight }) {
 
     return (
     <nav className={`navigation ${isBurgerMenu ? 'navigation_side' : ''}`}>
-        <p type='button' onClick={goMovies} className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Фильмы</p>
-        <p type='button' onClick={goSavedMovies} className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Сохранённые фильмы</p>
+        <p onClick={goMovies} className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Фильмы</p>
+        <p onClick={goSavedMovies} className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Сохранённые фильмы</p>
     </nav>
     )
 }

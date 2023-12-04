@@ -1,8 +1,10 @@
 .not-found {
-    position: fixed;
+    /* position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    margin: auto;
+    margin-top: 250px;
 }
 
 
@@ -14,8 +16,8 @@
 }
 
 .not-found__subtitle {
-    margin-top: 5px;
     margin: 0;
+    margin-top: 10px;
     text-align: center;
     font-size: 16px;
 }
@@ -27,6 +29,12 @@
     font-weight: 400;
     text-align: center;
     margin-top: 184px;
+}
+
+@media (max-width: 910px){
+    .not-found{
+        margin-top: 412px;
+    }
 }
 
 @media (max-width: 500px){
@@ -41,4 +49,9 @@
     .not-found__back{
         margin-top: 284px;
     }
+
+    .not-found{
+        margin-top: 332px;
+    }
 }
+
