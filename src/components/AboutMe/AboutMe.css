@@ -1,0 +1,156 @@
+.aboutMe {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 95px;
+  padding-bottom: 101px;
+}
+
+.aboutMe__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.88px;
+  margin-bottom: 23px;
+}
+
+.aboutMe__container {
+  border-top: 1px solid #000;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-top: 66px;
+  gap: 49px;
+}
+
+.aboutMe__profileImage {
+
+}
+
+.aboutMe__description {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutMe__name {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+
+.aboutMe__occupation {
+  margin: 18px 0 26px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+  vertical-align: text-top;
+}
+
+.aboutMe__life {
+  margin: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+}
+
+.aboutMe__profileImage {
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.aboutMe__link {
+  margin-top: 99px;
+  color:#000;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+  width: fit-content;
+}
+
+.aboutMe__link:hover{
+  opacity: 0.7;
+}
+
+@media (max-width: 910px) {
+  .aboutMe__profileImage {
+    width: 255px;
+    height: 307px;
+  }
+  .aboutMe__name {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 100% */
+    letter-spacing: -1.6px;
+  }
+
+  .aboutMe__occupation {
+    font-size: 12px;
+    margin: 16px 0 20px;
+  }
+
+  .aboutMe__life {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+  }
+
+  .aboutMe__link{
+    margin-top: 87px;
+  }
+  .aboutMe{
+    padding-top: 90px;
+    padding-bottom: 91px;
+  }
+}
+
+@media (max-width: 760px) {
+  .aboutMe__name {
+    font-size: 30px;
+    line-height: normal;
+  }
+  .aboutMe__occupation {
+    font-size: 11px;
+    margin: 20px 0 20px;
+  }
+  .aboutMe__life {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .aboutMe__title{
+    margin-bottom: 28px;
+    font-size: 18px;
+  }
+  .aboutMe__profileImage {
+    width: 292px;
+    height: 352px;
+  }
+
+  .aboutMe__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .aboutMe__link{
+    margin-top: 40px;
+    font-size: 14px;
+  }
+
+  .aboutMe{
+    padding-top: 140px;
+    padding-bottom: 70px;
+  }
+
+  .aboutMe__container{
+    padding-top: 60px;
+  }
+
+}

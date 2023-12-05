@@ -1,0 +1,148 @@
+.promo {
+  padding: 75px 70px;
+  background-color: #073042;
+  /* width: 100%; */
+}
+
+.promo__container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.promo__planetWEB {
+  height: 310px;
+}
+
+
+.promo__info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.promo__title {
+  margin: 0;
+  max-width: 640px;
+  color: #FFF;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  vertical-align: text-top;
+}
+
+@media (max-width: 910px) {
+  .promo__title {
+    margin-top: 40px;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  .promo__findMore {
+    margin: 0 auto;
+  }
+
+  .promo__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 140px 44px 76px; */
+  }
+
+  .promo__subtitle {
+    margin: 0 auto;
+    margin-top: 22px;
+    margin-bottom: 92px;
+    text-align: center;
+  }
+  .promo__info {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.promo__subtitle {
+  margin: 0;
+  max-width: 310px;
+  color: #FFF;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.5;
+  margin-top: 32px;
+  margin-bottom: 146px;
+}
+
+
+
+
+.promo__findMore {
+  /* padding: 10px 20px; */
+  width: 129px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  border: 1px solid #FFF;
+  opacity: 0.6;
+  background-color: transparent;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 133.333% */
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.promo__findMore:hover {
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  .promo {
+    padding-top: 140px;
+  }
+
+  .promo__subtitle{
+    margin-top: 22px;
+    margin-bottom: 92px;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .promo__planetWEB {
+    height: 210px;
+  }
+
+  .promo__title {
+    margin-top: 44px;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -1.2px; 
+  }
+
+  .promo__planetWEB {
+    width: 210px;
+  }
+
+  .promo {
+    padding-top: 65px;
+    padding-bottom: 30px;
+  }
+
+  .promo__subtitle{
+    margin-top: 24px;
+    margin-bottom: 75px;
+  }
+}
