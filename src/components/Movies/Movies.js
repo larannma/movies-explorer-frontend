@@ -6,13 +6,14 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 // import Preloader from '../Preloader/Preloader';
 
-function Movies() {
+function Movies( { getMovies } ) {
+
   return (
     <>
     <div className='content'>
       <Header headerColor={'light'}/>
       <main className='movies'>
-        <SearchForm/>
+        <SearchForm getMovies={getMovies}/>
         <MoviesCardList/>
         {/* <Preloader/> */}
         <button className='movies__moreButton' type='button'>Еще</button>

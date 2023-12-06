@@ -1,10 +1,17 @@
 import './SearchForm.css'
 import CustomSwitch from '../CustomSwitch/CustomSwitch'
 
-function SearchForm() {
+function SearchForm( { getMovies } ) {
+
+  function onSubmit(event) {
+    event.preventDefault()
+    console.log(getMovies)
+    getMovies()
+  }
+
   return (
     <section className='search-form'>
-        <form className='search-form__container'>
+        <form className='search-form__container' onSubmit={onSubmit}>
           <input className='search-form__input' type="text" id="name" name="name" placeholder='Фильм' required/>
           <button type='submit' className='search-form__submit'>Найти</button>
         </form>

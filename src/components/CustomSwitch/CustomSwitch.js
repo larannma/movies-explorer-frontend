@@ -2,9 +2,9 @@ import './CustomSwitch.css'
 
 function CustomSwitch() {
   return (
-    <label class="switch">
+    <label className="switch">
       <input type="checkbox"/>
-      <span class="slider round"></span>
+      <span className="slider round"></span>
     </label>
   )
 }
