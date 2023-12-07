@@ -1,5 +1,5 @@
 import React from "react";
-import useScreenWidth from '../useScreenWidth'
+import useScreenWidth from '../../utils/customHooks/useScreenWidth'
 import './Header.css'
 
 import AccountButton from "../AccountButton/AccountButton";

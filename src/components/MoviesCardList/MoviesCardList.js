@@ -1,13 +1,11 @@
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList( { moviesList } ) {
+function MoviesCardList( { displayedItems } ) {
   return (
     <section className='movies-card-list'>
-      {/* <MoviesCard name={"будущий пропс"}/> */}
-      {moviesList.map(movie => {
-        console.log(movie)
-        return(<MoviesCard movie={movie}/>)
+      {displayedItems.map(movie => {
+        return(<MoviesCard key={movie.id} movie={movie}/>)
       }
       )}
     </section>

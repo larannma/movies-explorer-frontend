@@ -5,7 +5,9 @@ function SearchForm( { getMovies } ) {
 
   function onSubmit(event) {
     event.preventDefault()
-    getMovies()
+    const formData = new FormData(event.target);
+    const formProps = Object.fromEntries(formData);
+    getMovies(formProps.name)
   }
 
   return (
