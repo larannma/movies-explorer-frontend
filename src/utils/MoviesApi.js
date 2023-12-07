@@ -3,12 +3,16 @@ class MoviesApi {
         this._url = config.url;
     }
 
+    _handleResponse(res){
+      if (res.ok){
+        return res.json()
+      } else {
+        return Promise.reject(`Error status ${res.status}`)
+      }
+    }
+
     getMovies() {
-        return(fetch(this._url), {
-            
-        }).then((res) => {
-            console.log(res)
-        })
+        return(fetch(this._url)).then(this._handleResponse)
     }
 }
 

@@ -5,7 +5,6 @@ function SearchForm( { getMovies } ) {
 
   function onSubmit(event) {
     event.preventDefault()
-    console.log(getMovies)
     getMovies()
   }
 

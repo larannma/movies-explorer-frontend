@@ -1,4 +1,5 @@
-
+import React from 'react';
+import { useState } from 'react';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
@@ -12,17 +13,22 @@ import api from '../../utils/MoviesApi';
 
 
 function App() {
+  const [moviesList, setMoviesList] = useState([]);
 
   function getMovies() {
-    console.log(api.getMovies())
+    api.getMovies().then((res) => {
+      // console.log(res)
+      setMoviesList(res);
+    })
+    
   }
 
   return (
     <div className="App root">
       <Routes>
         <Route path='/' element={<Main/>}/>
-        <Route path='/movies' element={<Movies getMovies={getMovies}/>}/>
-        <Route path='/saved-movies' element={<SavadMovies/>}/> {/* зашакалился*/}
+        <Route path='/movies' element={<Movies getMovies={getMovies} moviesList={moviesList}/>}/>
+        <Route path='/saved-movies' element={<SavadMovies/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/signin' element={<Login/>}/>
         <Route path='/signup' element={<Register/>}/>
