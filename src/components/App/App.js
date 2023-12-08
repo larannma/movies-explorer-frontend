@@ -24,10 +24,10 @@ function App() {
   useEffect(() => {
     if (windowWidth >= 1280) {
       setInitialPreload(16);
-      setItemsPreload(16)
+      setItemsPreload(4)
     } else if (windowWidth >= 768 && windowWidth < 1280) {
       setInitialPreload(12);
-      setItemsPreload(12)
+      setItemsPreload(3)
     } else {
       setInitialPreload(5);
       setItemsPreload(2);
@@ -47,6 +47,7 @@ function App() {
       let newArr = sortMovies(res, searchString)
       setDisplayedItems(newArr.slice(0, initialPreload))
       setMoviesList(newArr);
+      console.log(newArr)
     }).finally(() => {
       setPreloaderDisplayed(false)
     })
