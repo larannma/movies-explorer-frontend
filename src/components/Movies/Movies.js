@@ -6,14 +6,14 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Preloader from '../Preloader/Preloader';
 
-function Movies( { getMovies, moviesList, displayedItems, isPreloaderDisplayed, loadMore } ) {
-
+function Movies( { getMovies, moviesList, displayedItems, isPreloaderDisplayed, loadMore, handleSwitch, switchStatus } ) {
+  console.log(moviesList, displayedItems)
   return (
     <>
     <div className='content'>
       <Header headerColor={'light'}/>
       <main className='movies'>
-        <SearchForm getMovies={getMovies}/>
+        <SearchForm getMovies={getMovies} handleSwitch={handleSwitch} switchStatus={switchStatus}/>
         <Preloader isPreloaderDisplayed={isPreloaderDisplayed}/>
         <MoviesCardList displayedItems={displayedItems}/>
         {displayedItems.length < moviesList.length && (

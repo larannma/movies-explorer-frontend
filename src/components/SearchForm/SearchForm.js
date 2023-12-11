@@ -1,7 +1,7 @@
 import './SearchForm.css'
 import CustomSwitch from '../CustomSwitch/CustomSwitch'
 
-function SearchForm( { getMovies } ) {
+function SearchForm( { getMovies, handleSwitch, switchStatus } ) {
 
   function onSubmit(event) {
     event.preventDefault()
@@ -17,7 +17,7 @@ function SearchForm( { getMovies } ) {
           <button type='submit' className='search-form__submit'>Найти</button>
         </form>
         <div className='search-form__shorts'>
-          <CustomSwitch/>
+          <CustomSwitch handleSwitch={handleSwitch} switchStatus={switchStatus}/>
           <p className='search-form__shortsTitle'>Короткометражки</p>
         </div>
     </section>
