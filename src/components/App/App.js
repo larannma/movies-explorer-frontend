@@ -22,11 +22,18 @@ function App() {
   const windowWidth = useScreenWidth();
   const [initialPreload, setInitialPreload] = useState(16);
   const [switchStatus, setSwitchStatus] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    setMoviesList(JSON.parse(localStorage.getItem('movieList')));
-    setDisplayedItems(JSON.parse(localStorage.getItem('displayedMovies')));
-    setSwitchStatus(JSON.parse(localStorage.getItem('switch')));
+    let localMoviesList = JSON.parse(localStorage.getItem('movieList'));
+    let localDisplayedItems = JSON.parse(localStorage.getItem('displayedMovies'));
+    let localSwitchStatus = JSON.parse(localStorage.getItem('switch'));
+
+    if (localDisplayedItems && localMoviesList) {
+      setMoviesList(localMoviesList);
+      setDisplayedItems(localDisplayedItems);
+      setSwitchStatus(localSwitchStatus);
+    }
   }, [])
 
   useEffect(() => {
@@ -59,11 +66,10 @@ function App() {
     setPreloaderDisplayed(true)
     
     api.getMovies().then((res) => {
-      let newArr = sortMovies(res, searchString)
-      
-      setDisplayedItems(newArr.slice(0, initialPreload))
+      let newArr = sortMovies(res, searchString);
+      setDisplayedItems(newArr.slice(0, initialPreload));
       setMoviesList(newArr);
-      // console.log(newArr)
+      localStorage.setItem('searchString', searchString);
       localStorage.setItem('switch', switchStatus);
       localStorage.setItem('movieList', JSON.stringify(newArr));
       localStorage.setItem('displayedMovies', JSON.stringify(newArr.slice(0, initialPreload)));
@@ -89,15 +95,19 @@ function App() {
     setSwitchStatus(status);
   }
 
+  function handleRegistration() {
+    console.log('redistered')
+  }
+
   return (
     <div className="App root">
       <Routes>
         <Route path='/' element={<Main/>}/>
-        <Route path='/movies' element={<Movies getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
+        <Route path='/movies' element={<Movies getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} isLoggedIn={isLoggedIn}/>}/>
         <Route path='/saved-movies' element={<SavadMovies/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/signin' element={<Login/>}/>
-        <Route path='/signup' element={<Register/>}/>
+        <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

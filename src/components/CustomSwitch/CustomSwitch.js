@@ -1,13 +1,6 @@
 import './CustomSwitch.css'
-import { useEffect } from 'react';
 
 function CustomSwitch({ handleSwitch, switchStatus }) {
-  
-  useEffect(() => {
-    const customSwitch = document.querySelector('#shorts').checked;
-    console.log(switchStatus, customSwitch)
-    // customSwitch.checked = switchStatus
-  }, [switchStatus])
 
   function onSwitchChange(){
     const customSwitch = document.querySelector('#shorts').checked;

@@ -16,10 +16,10 @@ class MoviesApi {
     }
 }
 
-const apiURL = 'https://api.nomoreparties.co/beatfilm-movies'
+const BEAT_MOVIES_API = 'https://api.nomoreparties.co/beatfilm-movies'
 
 const api = new MoviesApi({
-    url: apiURL,
+    url: BEAT_MOVIES_API,
 })
 
 export default api;

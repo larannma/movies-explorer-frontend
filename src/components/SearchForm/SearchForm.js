@@ -1,7 +1,15 @@
 import './SearchForm.css'
 import CustomSwitch from '../CustomSwitch/CustomSwitch'
+import { useEffect } from 'react';
 
 function SearchForm( { getMovies, handleSwitch, switchStatus } ) {
+
+  useEffect(() => {
+    let localSearch = localStorage.getItem('searchString');
+    if (localSearch) {
+      document.getElementById("name").value = localSearch;
+    }
+  }, []);
 
   function onSubmit(event) {
     event.preventDefault()
