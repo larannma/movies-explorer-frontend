@@ -43,11 +43,11 @@ function Profile( { isLoggedIn, handleUpdateUser }) {
           <form onSubmit={handleSubmit} className='profile__editForm'>
             <div className='profile__inputContainer'>
               <label className='profile__inputTitle'>Имя</label>
-              <input onChange={handleNameChange} name='name' placeholder='Виталий' className='profile__input' required minLength={2} maxLength={40}></input>
+              <input onChange={handleNameChange} name='name' placeholder={currentUser.name} className='profile__input' required minLength={2} maxLength={40}></input>
             </div>
             <div className='profile__inputContainer'>
               <label className='profile__inputTitle'>E-mail</label>
-              <input onChange={handleEmailChange} name='email' placeholder='pochta@yandex.ru' className='profile__input' required type='email'></input>
+              <input onChange={handleEmailChange} name='email' placeholder={currentUser.email} className='profile__input' required type='email'></input>
             </div>
               <div className='profile__buttonContainer'>
                 <button type='submit' className='profile__editButton profile__button'>Редактировать</button>
