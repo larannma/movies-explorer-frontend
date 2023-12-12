@@ -35,3 +35,19 @@ export const authorize = (email, password) => {
   })
   .then(_handleResponse)
 };
+
+export const editUserInfo = (name, email) => {
+    return fetch(`${MAIN_API}/users/me`, {
+    method: "PATCH",
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+      email,
+    })
+  })
+  .then(_handleResponse);
+}

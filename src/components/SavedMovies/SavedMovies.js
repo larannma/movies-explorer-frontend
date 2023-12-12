@@ -8,7 +8,7 @@ import Footer from '../Footer/Footer'
 function SavedMovies( { isLoggedIn }) {
 
   // запрос к апи по сохраненным фильмам
-  
+  const displayedItems = []
   return (
     <>
     <div className='content'>

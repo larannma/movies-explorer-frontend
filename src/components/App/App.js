@@ -13,46 +13,22 @@ import api from '../../utils/MoviesApi';
 import useScreenWidth from '../../utils/customHooks/useScreenWidth';
 import ProtectedRouteElement from '../../utils/ProtectedRoute';
 import { useNavigate } from 'react-router-dom';
-
-// import CustomSwitch from '../CustomSwitch/CustomSwitch';
-
+import { useLocalStorageState as useStorage } from '../../utils/customHooks/useLocalStorage';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import * as MainApi from '../../utils/MainApi';
 
 function App() {
-  const [moviesList, setMoviesList] = useState([]);
+  const [moviesList, setMoviesList] = useStorage('moviesList', []);
   const [itemsPreload, setItemsPreload] = useState(16);
   const [isPreloaderDisplayed, setPreloaderDisplayed] = useState(false);
-  const [displayedItems, setDisplayedItems] = useState(moviesList.slice(0, itemsPreload));
+  const [displayedItems, setDisplayedItems] = useStorage('displayedItems', moviesList.slice(0, itemsPreload));
   const windowWidth = useScreenWidth();
   const [initialPreload, setInitialPreload] = useState(16);
-  const [switchStatus, setSwitchStatus] = useState(false);
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [switchStatus, setSwitchStatus] = useStorage('switch', false);
+  const [isLoggedIn, setLoggedIn] = useStorage('isLoggedIn', false);
+  const [currentUser, setCurrentUser] = React.useState({});
 
   const navigate = useNavigate();
-
-
-  useEffect(() => {
-    let localMoviesList = JSON.parse(localStorage.getItem('movieList'));
-    let localDisplayedItems = JSON.parse(localStorage.getItem('displayedMovies'));
-    let localSwitchStatus = JSON.parse(localStorage.getItem('switch'));
-
-    if (localDisplayedItems && localMoviesList) {
-      setMoviesList(localMoviesList);
-      setDisplayedItems(localDisplayedItems);
-      setSwitchStatus(localSwitchStatus);
-    }
-  }, [])
-
-  React.useEffect(() => {
-    tokenCheck();
-  }, [isLoggedIn]);
-
-  const tokenCheck = () => {
-    const token = localStorage.getItem('isLoggedIn');
-    if (token){
-      setLoggedIn(true);
-      navigate("/movies", {replace: true});
-    }
-  }
 
   useEffect(() => {
     if (windowWidth >= 1280) {
@@ -87,19 +63,11 @@ function App() {
       let newArr = sortMovies(res, searchString);
       setDisplayedItems(newArr.slice(0, initialPreload));
       setMoviesList(newArr);
-      localStorage.setItem('searchString', searchString);
-      localStorage.setItem('switch', switchStatus);
-      localStorage.setItem('movieList', JSON.stringify(newArr));
-      localStorage.setItem('displayedMovies', JSON.stringify(newArr.slice(0, initialPreload)));
     }).finally(() => {
       setPreloaderDisplayed(false)
     })
     
   }
-
-  useEffect(() => {
-    localStorage.setItem('displayedMovies', JSON.stringify(displayedItems));
-  }, [displayedItems])
 
   function loadMore() {
     const nextItems = moviesList.slice(
@@ -119,23 +87,34 @@ function App() {
 
   function handleLogin(result) {
     console.log(result);
-    // localStorage.setItem('isLoggedIn', true);
     setLoggedIn(true);
     navigate("/movies", {replace: true});
   }
 
+  const handleUpdateUser = (data) => {
+    console.log(data);
+    MainApi.editUserInfo(data.name, data.email).then((res) => {
+      console.log(res)
+      setCurrentUser(res);
+    }).catch((err => {
+      console.log(err)
+    }));
+  }
+
   return (
-    <div className="App root">
-      <Routes>
-        <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
-        <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
-        <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
-        <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
-        <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} displayedItems={displayedItems}/>}/>
-        <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn}/>}/>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="App root">
+        <Routes>
+          <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
+          <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
+          <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
+          <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
+          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} displayedItems={displayedItems}/>}/>
+          <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser}/>}/>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
