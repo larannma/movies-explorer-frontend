@@ -8,9 +8,11 @@ import Register from '../Register/Register'
 import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import { Route, Routes } from 'react-router-dom';
-import SavadMovies from '../SavedMovies/SavedMovies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 import api from '../../utils/MoviesApi';
 import useScreenWidth from '../../utils/customHooks/useScreenWidth';
+import ProtectedRouteElement from '../../utils/ProtectedRoute';
+
 // import CustomSwitch from '../CustomSwitch/CustomSwitch';
 
 
@@ -95,18 +97,23 @@ function App() {
     setSwitchStatus(status);
   }
 
-  function handleRegistration() {
-    console.log('redistered')
+  function handleRegistration(result) {
+    console.log(result);
+  }
+
+  function handleLogin(result) {
+    console.log(result);
+    setLoggedIn(true);
   }
 
   return (
     <div className="App root">
       <Routes>
         <Route path='/' element={<Main/>}/>
-        <Route path='/movies' element={<Movies getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} isLoggedIn={isLoggedIn}/>}/>
-        <Route path='/saved-movies' element={<SavadMovies/>}/>
-        <Route path='/profile' element={<Profile/>}/>
-        <Route path='/signin' element={<Login/>}/>
+        <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
+        <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} />}/>
+        <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn}/>}/>
+        <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
         <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>

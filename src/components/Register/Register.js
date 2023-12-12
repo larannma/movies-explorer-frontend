@@ -15,6 +15,7 @@ function Register({ handleRegistration }) {
 
   const handleChange = (e) => {
     const {name, value} = e.target;
+
     setFormValue({
       ...formValue,
       [name]: value
@@ -24,11 +25,14 @@ function Register({ handleRegistration }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const {name, email, password } = formValue;
-    console.log(name, email, password)
     MainApi.register(name, email, password).then((res) => {
-      navigate('/signin', {replace: true});
-      handleRegistration("success");
-			}
+      if (res.status === 201) {
+        navigate('/signin', {replace: true});
+        handleRegistration("success");
+      } else {
+        handleRegistration("fail");
+      }
+		}
 		).catch(()=> {
       handleRegistration("fail");
     });

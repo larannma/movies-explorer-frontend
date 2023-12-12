@@ -2,7 +2,7 @@ import './Profile.css'
 import Header from '../Header/Header'
 import { useNavigate } from "react-router-dom";
 
-function Profile() {
+function Profile( { isLoggedIn }) {
   const navigate = useNavigate();
 
   function onExit() {
@@ -12,7 +12,7 @@ function Profile() {
   return(
     <>
       <div className='profilePage'>
-        <Header headerColor={'light'}/>
+        <Header headerColor={'light'} isLoggedIn={isLoggedIn}/>
         <main className='profile'>
           <h1 className='profile__title'>Привет, Виталий!</h1>
           <form className='profile__editForm'>

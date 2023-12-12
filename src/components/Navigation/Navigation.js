@@ -1,16 +1,6 @@
 import './Navigation.css'
-// import { useNavigate } from "react-router-dom";
 
 function Navigation({ isBurgerMenu, isThemeLight }) {
-    // const navigate = useNavigate();
-
-    // function goMovies() {
-    //     navigate('/movies', { replace: true });
-    // }
-
-    // function goSavedMovies() {
-    //     navigate('/saved-movies', { replace: true });
-    // }
 
     return (
     <nav className={`navigation ${isBurgerMenu ? 'navigation_side' : ''}`}>

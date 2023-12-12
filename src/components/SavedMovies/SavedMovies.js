@@ -5,11 +5,11 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
-function SavedMovies() {
+function SavedMovies( { isLoggedIn }) {
   return (
     <>
     <div className='content'>
-      <Header headerColor={'light'}/>
+      <Header headerColor={'light'} isLoggedIn={isLoggedIn}/>
       <main className='saved-movies'>
         <SearchForm/>
         <MoviesCardList/>

@@ -17,5 +17,21 @@ export const register = (name, email, password) => {
     },
     body: JSON.stringify({name, email, password}),
   })
-  .then(_handleResponse);
+  .then(_handleResponse)
+  .catch((err) => {
+    console.log(`Ошибка регистрации: ${err}`)
+  });
+};
+
+export const authorize = (email, password) => {
+  return fetch(`${MAIN_API}/signin`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({email, password}),
+  })
+  .then(_handleResponse)
 };

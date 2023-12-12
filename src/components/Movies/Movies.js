@@ -6,7 +6,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Preloader from '../Preloader/Preloader';
 
-function Movies( { getMovies, moviesList, displayedItems, isPreloaderDisplayed, loadMore, handleSwitch, switchStatus, isLoggedIn } ) {
+function Movies( { isLoggedIn, getMovies, moviesList, displayedItems, isPreloaderDisplayed, loadMore, handleSwitch, switchStatus } ) {
   // console.log(moviesList, displayedItems)
   return (
     <>
