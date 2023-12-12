@@ -32,7 +32,6 @@ function Login( { handleLogin }) {
             if (data.token){
                 setFormValue({email: '', password: ''});
                 handleLogin("секретный токен получен");
-                navigate('/movies', {replace: true});
               }
           })
           .catch(err => console.log(err));
@@ -51,7 +50,7 @@ function Login( { handleLogin }) {
                     <label className='login__inputTitle'>Пароль</label>
                     <input onChange={handleChange} name='password' className='login__input' type="password" minLength={8} maxLength={40} required placeholder="••••••••••••••"></input>
                 </div>
-                <button className='login__submitButton'>Войти</button>
+                <button type='submit' className='login__submitButton'>Войти</button>
                 <p className='login__subtitle'>Еще не зарегистрированы?  <a href='./signup' className='login__subtitleLink'> Регистрация</a></p>
             </form>
             

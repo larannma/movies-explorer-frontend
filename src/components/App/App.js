@@ -12,6 +12,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import api from '../../utils/MoviesApi';
 import useScreenWidth from '../../utils/customHooks/useScreenWidth';
 import ProtectedRouteElement from '../../utils/ProtectedRoute';
+import { useNavigate } from 'react-router-dom';
 
 // import CustomSwitch from '../CustomSwitch/CustomSwitch';
 
@@ -26,6 +27,9 @@ function App() {
   const [switchStatus, setSwitchStatus] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
+  const navigate = useNavigate();
+
+
   useEffect(() => {
     let localMoviesList = JSON.parse(localStorage.getItem('movieList'));
     let localDisplayedItems = JSON.parse(localStorage.getItem('displayedMovies'));
@@ -37,6 +41,18 @@ function App() {
       setSwitchStatus(localSwitchStatus);
     }
   }, [])
+
+  React.useEffect(() => {
+    tokenCheck();
+  }, [isLoggedIn]);
+
+  const tokenCheck = () => {
+    const token = localStorage.getItem('isLoggedIn');
+    if (token){
+      setLoggedIn(true);
+      navigate("/movies", {replace: true});
+    }
+  }
 
   useEffect(() => {
     if (windowWidth >= 1280) {
@@ -103,18 +119,20 @@ function App() {
 
   function handleLogin(result) {
     console.log(result);
+    // localStorage.setItem('isLoggedIn', true);
     setLoggedIn(true);
+    navigate("/movies", {replace: true});
   }
 
   return (
     <div className="App root">
       <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
-        <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} />}/>
-        <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn}/>}/>
+        <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
         <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
         <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
+        <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
+        <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} displayedItems={displayedItems}/>}/>
+        <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn}/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
