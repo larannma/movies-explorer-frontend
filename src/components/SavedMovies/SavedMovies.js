@@ -5,19 +5,16 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
-function SavedMovies( { isLoggedIn }) {
+function SavedMovies( { isLoggedIn, savedMovies }) {
 
-  // запрос к апи по сохраненным фильмам
-  const displayedItems = []
   return (
     <>
     <div className='content'>
       <Header headerColor={'light'} isLoggedIn={isLoggedIn}/>
       <main className='saved-movies'>
         <SearchForm/>
-        <MoviesCardList displayedItems={displayedItems}/>
+        <MoviesCardList displayedItems={savedMovies}/>
         {/* <Preloader/> */}
-        <button className='saved-movies__moreButton' type='button'>Еще</button>
       </main>
     </div>
     <Footer/>

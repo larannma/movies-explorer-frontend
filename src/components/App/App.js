@@ -30,9 +30,12 @@ function App() {
 
   const navigate = useNavigate();
 
+  const [savedMovies, setSavedMovies] = useState(() => {
+    getSavedMovies();
+  });
+
   React.useEffect(() => {
     MainApi.getUserInfo().then((res) => {
-      console.log(res)
       setCurrentUser(res);
     }).catch((err => {
       console.log(err)
@@ -104,6 +107,14 @@ function App() {
     console.log(data);
     MainApi.editUserInfo(data.name, data.email).then((res) => {
       console.log(res)
+      setSavedMovies(res);
+    }).catch((err => {
+      console.log(err)
+    }));
+  }
+
+  function getSavedMovies() {
+    MainApi.getSavedMovies().then((res) => {
       setCurrentUser(res);
     }).catch((err => {
       console.log(err)
@@ -118,7 +129,7 @@ function App() {
           <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
           <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
           <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getMovies} moviesList={moviesList} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus}/>}/>
-          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} displayedItems={displayedItems}/>}/>
+          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} savedMovies={savedMovies}/>}/>
           <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser}/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

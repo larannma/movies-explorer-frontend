@@ -63,3 +63,15 @@ export const getUserInfo = () => {
 })
 .then(_handleResponse);
 }
+
+export const getSavedMovies = () => {
+  return fetch(`${MAIN_API}/movies`, {
+  method: "GET",
+  credentials: 'include',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }
+})
+.then(_handleResponse);
+}

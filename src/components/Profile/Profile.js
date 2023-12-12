@@ -23,7 +23,8 @@ function Profile( { isLoggedIn, handleUpdateUser }) {
 
   React.useEffect(() => {
     setName(currentUser.name ?? "");
-    setEmail(currentUser.about ?? "");
+    setEmail(currentUser.email ?? "");
+
   }, [currentUser]);
 
   function handleNameChange(e) {
@@ -43,11 +44,11 @@ function Profile( { isLoggedIn, handleUpdateUser }) {
           <form onSubmit={handleSubmit} className='profile__editForm'>
             <div className='profile__inputContainer'>
               <label className='profile__inputTitle'>Имя</label>
-              <input onChange={handleNameChange} name='name' placeholder={currentUser.name} className='profile__input' required minLength={2} maxLength={40}></input>
+              <input value={name} onChange={handleNameChange} name='name' placeholder={currentUser.name} className='profile__input' required minLength={2} maxLength={40} type='text'></input>
             </div>
             <div className='profile__inputContainer'>
               <label className='profile__inputTitle'>E-mail</label>
-              <input onChange={handleEmailChange} name='email' placeholder={currentUser.email} className='profile__input' required type='email'></input>
+              <input value={email} onChange={handleEmailChange} name='email' placeholder={currentUser.email} className='profile__input' required type='email'></input>
             </div>
               <div className='profile__buttonContainer'>
                 <button type='submit' className='profile__editButton profile__button'>Редактировать</button>
