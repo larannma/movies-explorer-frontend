@@ -51,3 +51,15 @@ export const editUserInfo = (name, email) => {
   })
   .then(_handleResponse);
 }
+
+export const getUserInfo = () => {
+  return fetch(`${MAIN_API}/users/me`, {
+  method: "GET",
+  credentials: 'include',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }
+})
+.then(_handleResponse);
+}
