@@ -62,7 +62,10 @@ export const getUserInfo = () => {
     'Content-Type': 'application/json',
   }
 })
-.then(_handleResponse);
+.then(_handleResponse)
+.catch(err => {
+  console.log(err)
+});
 }
 
 export const getSavedMovies = () => {
@@ -107,7 +110,7 @@ export const createMovie = (country, director, duration, year, description, imag
 };
 
 export const deleteMovie = (movieId) => {
-  return fetch(`${MAIN_API}/${movieId}`, {
+  return fetch(`${MAIN_API}/movies/${movieId}`, {
     method: 'DELETE',
     credentials: 'include',
     headers: {

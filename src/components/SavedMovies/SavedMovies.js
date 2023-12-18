@@ -4,8 +4,10 @@ import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import { useLocalStorageState as useStorage } from '../../utils/customHooks/useLocalStorage';
 
-function SavedMovies( { isLoggedIn, savedMovies }) {
+function SavedMovies( { isLoggedIn }) {
+  const [savedMovies, setSavedMovies] = useStorage('savedMovies', []);
 
   return (
     <>

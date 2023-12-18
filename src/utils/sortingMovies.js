@@ -30,6 +30,14 @@ export const isMovieSaved = (movie, savedMovies) => {
 }
 
 export const findById = (movieId, savedMovies) => {
-  const foundMovie = savedMovies.find(savedMovie => savedMovie._id === movieId);
-  return foundMovie ? foundMovie.movieId : null;
+  const foundMovie = savedMovies.find(savedMovie => savedMovie.movieId === movieId);
+  return foundMovie ? foundMovie._id : null;
+}
+
+export const updateLikeStatus = (movies, savedMovies) => {
+  const updatedMovies = movies.map(movie => {
+    const isLiked = savedMovies.some(savedMovie => savedMovie.movieId === movie.id);
+    return { ...movie, isLiked };
+  });
+  return updatedMovies;
 }
