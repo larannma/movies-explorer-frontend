@@ -4,18 +4,12 @@ import { useEffect } from 'react';
 
 function SearchForm( { getMovies, handleSwitch, switchStatus } ) {
 
-  useEffect(() => {
-    let localSearch = localStorage.getItem('searchString');
-    if (localSearch) {
-      document.getElementById("name").value = localSearch;
-    }
-  }, []);
-
   function onSubmit(event) {
     event.preventDefault()
     const formData = new FormData(event.target);
     const formProps = Object.fromEntries(formData);
-    getMovies(formProps.name)
+    // setSearchString(e.target.value);
+    getMovies(formProps.name);
   }
 
   return (

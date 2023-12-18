@@ -41,6 +41,10 @@
   transition: background-image 0.2s ease-in-out;
 }
 
+.movie-card__savedLike {
+  background-image: url(../../images/save1.svg);
+}
+
 .movie-card__saveButton:hover {
   background-image: url(../../images/save1.svg);
 }

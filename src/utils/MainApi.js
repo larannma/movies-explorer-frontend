@@ -76,3 +76,47 @@ export const getSavedMovies = () => {
 })
 .then(_handleResponse);
 }
+
+export const createMovie = (country, director, duration, year, description, image, trailerLink, thumbnail, movieId, nameRU, nameEN) => {
+  return fetch(`${MAIN_API}/movies`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      country,
+      director,
+      duration,
+      year,
+      description,
+      image,
+      trailerLink,
+      thumbnail,
+      movieId,
+      nameRU,
+      nameEN
+    
+    }),
+  })
+  .then(_handleResponse)
+  .catch((err) => {
+    console.log(`Ошибка создания карточки: ${err}`)
+  });
+};
+
+export const deleteMovie = (movieId) => {
+  return fetch(`${MAIN_API}/${movieId}`, {
+    method: 'DELETE',
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(_handleResponse)
+  .catch((err) => {
+    console.log(`Ошибка удаления карточки: ${err}`)
+  });
+};
