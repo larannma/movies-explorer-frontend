@@ -6,7 +6,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Preloader from '../Preloader/Preloader';
 
-function Movies( { isLoggedIn, getMovies, moviesList, displayedItems, isPreloaderDisplayed, loadMore, handleSwitch, switchStatus, handleMovieLike, searchString } ) {
+function Movies( { isLoggedIn, getMovies, moviesList, displayedItems, isPreloaderDisplayed, loadMore, handleSwitch, switchStatus, handleMovieLike, searchString, errorMessage } ) {
 
   return (
     <>
@@ -15,8 +15,8 @@ function Movies( { isLoggedIn, getMovies, moviesList, displayedItems, isPreloade
       <main className='movies'>
         <SearchForm getMovies={getMovies} handleSwitch={handleSwitch} switchStatus={switchStatus} searchString={searchString}/>
         <Preloader isPreloaderDisplayed={isPreloaderDisplayed}/>
-        <MoviesCardList displayedItems={displayedItems} handleMovieLike={handleMovieLike}/>
-        {displayedItems.length < moviesList.length && (
+        <MoviesCardList displayedItems={displayedItems} handleMovieLike={handleMovieLike} errorMessage={errorMessage}/>
+        {!errorMessage && displayedItems.length < moviesList.length && (
           <button onClick={loadMore} className='movies__moreButton' type='button'>Еще</button>
         )}
       </main>

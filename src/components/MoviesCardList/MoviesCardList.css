@@ -10,6 +10,24 @@
   margin: 0 auto;
   align-items: center;
   margin-top: 70px;
+  position: relative;
+}
+
+.movies-card-list__error{
+  font-weight: 400;
+  text-align: center;
+  font-size: 22px;
+  position: absolute;
+  top:50%; 
+  left:50%; 
+  transform:translate(-50%, -50%); 
+  top: 20px;
+  color: #A0A0A0;
+  padding: 20PX;
+}
+
+.movies-card-list__error_no-display{
+  display: none;
 }
 
 @media (max-width: 910px) {
@@ -27,5 +45,8 @@
   }
   .movies-card-list{
     margin-top: 40px;
+  }
+  .movies-card-list__error{
+    font-size: 18px;
   }
 }

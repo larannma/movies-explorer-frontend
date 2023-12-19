@@ -1,11 +1,15 @@
 import './Register.css'
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 import Logo from '../Logo/Logo';
 import * as MainApi from '../../utils/MainApi';
+import FormValidator from '../../utils/FormValidator'
+import config from '../../utils/constants';
 
 function Register({ handleRegistration }) {
   const navigate = useNavigate();
+  const formRef = useRef(null);
 
   const [formValue, setFormValue] = useState({
     name: '',
@@ -38,11 +42,18 @@ function Register({ handleRegistration }) {
     });
   }
 
+  useEffect(() => {
+    if (formRef.current) {
+      const validator = new FormValidator(config, formRef.current);
+      validator.enableValidation();
+    }
+  }, []);
+
   return (
     <main className='register'>
       <Logo/>
       <h1 className='register__title'>Добро пожаловать!</h1>
-      <form className='register__form' onSubmit={handleSubmit}>
+      <form ref={formRef} className='register__form' onSubmit={handleSubmit}>
         <div className='register__inputConiainer'>
           <label className='register__inputTitle'>Имя</label>
           <input name='name' onChange={handleChange} className='register__input' placeholder='Виталий' required minLength={2} maxLength={40}></input>

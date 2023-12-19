@@ -34,6 +34,9 @@ function App() {
   const [initialPreload, setInitialPreload] = useState(16);
   const [isPreloaderDisplayed, setPreloaderDisplayed] = useState(false);
 
+  // error message
+  const [errorMessage, setErrorMessage] = useState('');
+
   // то что будет доступно везде
   const [switchStatus, setSwitchStatus] = useStorage('switch', false);
   const [searchString, setSearchString] = useStorage('searchString', '');
@@ -42,6 +45,11 @@ function App() {
   const [displayedItems, setDisplayedItems] = useStorage('displayedItems', moviesList.slice(0, itemsPreload));
   const [filteredMovies, setFilteredMovies] = useStorage('filteredMovies', []);
   const [savedMovies, setSavedMovies] = useStorage('savedMovies', []);
+
+  // filtered saved movies
+  const [filteredSavedMovies, setFilteredSavedMovies] = useStorage('filteredSavedMovies', []);
+  const [savedSwitchStatus, setSavedSwitchStatus] = useStorage('savedSwitch', false);
+  const [savedSearchString, setSavedSearchString] = useStorage('savedSearchString', '');
 
   const navigate = useNavigate();
 
@@ -103,9 +111,18 @@ function App() {
       setSearchString(string);
       setMoviesList(arrWithLikes);
       let filtered = sortMovies(arrWithLikes, string, switchStatus);
+      if (filtered.length === 0) {
+        setErrorMessage('Ничего не найдено')
+      } else {
+        setErrorMessage('')
+      }
       setFilteredMovies(filtered);
       setDisplayedItems(filtered.slice(0, initialPreload));
-    }).finally(() => {
+    })
+    .catch(() => {
+      setErrorMessage('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
+    })
+    .finally(() => {
       setPreloaderDisplayed(false)
     });
   }
@@ -128,6 +145,9 @@ function App() {
         if (res) {
           const updatedSaved = savedMovies.filter(item => item._id !== res._id);
           setSavedMovies(updatedSaved)
+          // update filtered saved movies
+          const updatedFilteredSaved = filteredSavedMovies.filter(item => item._id !== res._id);
+          setFilteredSavedMovies(updatedFilteredSaved)
           setMoviesList(updateLikeStatus(moviesList, updatedSaved))
           setFilteredMovies(updateLikeStatus(filteredMovies, updatedSaved))
           setDisplayedItems(updateLikeStatus(displayedItems, updatedSaved))
@@ -173,6 +193,19 @@ function App() {
     }
   }
 
+  function handleSavedMoviesFilter(string){
+    // console.log(search)
+    setSavedSearchString(string);
+    let savedFiltered = sortMovies(savedMovies, string, savedSwitchStatus);
+    setFilteredSavedMovies(savedFiltered)
+  }
+
+  function handleSavedSwitch(value){
+    setSavedSwitchStatus(value);
+    let filtered = sortMovies(savedMovies, savedSearchString, value);
+    setFilteredSavedMovies(filtered);
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App root">
@@ -180,8 +213,8 @@ function App() {
           <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
           <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
           <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
-          <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike} searchString={searchString}/>}/>
-          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} savedMovies={savedMovies} handleMovieLike={handleMovieUnsave}/>} />
+          <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike} searchString={searchString} errorMessage={errorMessage}/>}/>
+          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} getMovies={handleSavedMoviesFilter} savedMovies={filteredSavedMovies} handleMovieLike={handleMovieUnsave} handleSwitch={handleSavedSwitch} switchStatus={savedSwitchStatus} searchString={savedSearchString}/>} />
           <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser}/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

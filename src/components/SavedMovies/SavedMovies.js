@@ -4,17 +4,15 @@ import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-// import { useLocalStorageState as useStorage } from '../../utils/customHooks/useLocalStorage';
 
-function SavedMovies( { isLoggedIn, savedMovies, handleMovieLike }) {
-  // const [savedMovies, setSavedMovies] = useStorage('savedMovies', []);
+function SavedMovies( { isLoggedIn, getMovies, savedMovies, handleMovieLike, handleSwitch, switchStatus, searchString }) {
 
   return (
     <>
     <div className='content'>
       <Header headerColor={'light'} isLoggedIn={isLoggedIn}/>
       <main className='saved-movies'>
-        <SearchForm/>
+        <SearchForm getMovies={getMovies} handleSwitch={handleSwitch} switchStatus={switchStatus} searchString={searchString}/>
         <MoviesCardList displayedItems={savedMovies} handleMovieLike={handleMovieLike}/>
         {/* <Preloader/> */}
       </main>
