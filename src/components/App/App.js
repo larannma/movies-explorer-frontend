@@ -119,11 +119,24 @@ function App() {
   }
 
   function handleMovieUnsave(movie) {
-    console.log(movie)
+    // console.log(movie)
+    let realId = findById(movie.movieId, savedMovies);
+    // console.log(realId)
+      MainApi.deleteMovie(realId)
+      .then((res) => {
+        // console.log(res)
+        if (res) {
+          const updatedSaved = savedMovies.filter(item => item._id !== res._id);
+          setSavedMovies(updatedSaved)
+          setMoviesList(updateLikeStatus(moviesList, updatedSaved))
+          setFilteredMovies(updateLikeStatus(filteredMovies, updatedSaved))
+          setDisplayedItems(updateLikeStatus(displayedItems, updatedSaved))
+        }
+      })
   }
 
   function handleMovieLike(movie) {
-    console.log('click')
+    // console.log('click')
     if (isMovieSaved(movie, savedMovies) === false) {
       MainApi.createMovie(
         movie.country,
@@ -167,8 +180,8 @@ function App() {
           <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
           <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
           <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
-          <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike}/>}/>
-          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} />} />
+          <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike} searchString={searchString}/>}/>
+          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} savedMovies={savedMovies} handleMovieLike={handleMovieUnsave}/>} />
           <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser}/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

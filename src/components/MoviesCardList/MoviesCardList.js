@@ -5,7 +5,7 @@ function MoviesCardList( { displayedItems, handleMovieLike } ) {
   return (
     <section className='movies-card-list'>
       {displayedItems && displayedItems.map(movie => {
-        return(<MoviesCard key={movie.id} movie={movie} handleMovieLike={handleMovieLike}/>)
+        return(<MoviesCard key={movie.id ? movie.id : movie._id} movie={movie} handleMovieLike={handleMovieLike}/>)
       }
       )}
     </section>

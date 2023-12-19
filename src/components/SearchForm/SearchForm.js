@@ -1,8 +1,8 @@
 import './SearchForm.css'
 import CustomSwitch from '../CustomSwitch/CustomSwitch'
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
-function SearchForm( { getMovies, handleSwitch, switchStatus } ) {
+function SearchForm( { getMovies, handleSwitch, switchStatus, searchString } ) {
 
   function onSubmit(event) {
     event.preventDefault()
@@ -15,7 +15,7 @@ function SearchForm( { getMovies, handleSwitch, switchStatus } ) {
   return (
     <section className='search-form'>
         <form className='search-form__container' onSubmit={onSubmit}>
-          <input className='search-form__input' type="text" id="name" name="name" placeholder='Фильм' required/>
+          <input className='search-form__input' type="text" id="name" name="name" placeholder={searchString} required/>
           <button type='submit' className='search-form__submit'>Найти</button>
         </form>
         <div className='search-form__shorts'>
