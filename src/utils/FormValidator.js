@@ -17,9 +17,9 @@ class FormValidator {
       })
     };
   
-    _setForm = () => {
-      this._form =  this._formElement.querySelector(this._formSelector);
-    }
+    // _setForm = () => {
+    //   this._form =  this._formElement.querySelector(this._formSelector);
+    // }
   
     _getInputArray = () => {
       return Array.from(this._formElement.querySelectorAll(this._inputSelector));
@@ -64,8 +64,9 @@ class FormValidator {
     _setEventListeners = () => {
       this._formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
-        this._setForm();
-        this._form.reset();
+        // this._setForm();
+        // this._form.reset();
+        // this._formElement.reset()
         this._toggleButtonState(this._buttonElement);
       });
   

@@ -2,6 +2,7 @@
 const MAIN_API = 'http://localhost:3001';
 
 const _handleResponse = (res) => {
+  console.log(res.text(), 'err')
   if (res.ok){
     return res.json()
   } else {

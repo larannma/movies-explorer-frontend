@@ -1,10 +1,10 @@
 const config = {
-    formSelector: '.my-form',
-    inputSelector: '.my-input',
-    submitButtonSelector: '.my-button',
-    inactiveButtonClass: 'inactive-button',
-    inputErrorClass: 'input-error',
-    errorClass: 'error',
-  };
-  
-  export default config;
+  formSelector: '.my-form',
+  inputSelector: '.form__text',
+  submitButtonSelector: '.form__submit-btn',
+  inactiveButtonClass: 'form__submit-btn_inactive',
+  inputErrorClass: 'form__text_type_invalid',
+  errorClass: 'form__text_error',
+}
+
+export default config;

@@ -8,6 +8,7 @@ import FormValidator from '../../utils/FormValidator'
 import config from '../../utils/constants';
 
 function Register({ handleRegistration }) {
+  const [ submitError, setSubmitError ] = useState('')
   const navigate = useNavigate();
   const formRef = useRef(null);
 
@@ -37,14 +38,17 @@ function Register({ handleRegistration }) {
         handleRegistration("fail");
       }
 		}
-		).catch(()=> {
+		).catch(() => {
+      // console.log(err)
       handleRegistration("fail");
+      // setSubmitError(err)
     });
   }
 
   useEffect(() => {
     if (formRef.current) {
       const validator = new FormValidator(config, formRef.current);
+      // console.log(formRef.current)
       validator.enableValidation();
     }
   }, []);
@@ -53,21 +57,24 @@ function Register({ handleRegistration }) {
     <main className='register'>
       <Logo/>
       <h1 className='register__title'>Добро пожаловать!</h1>
-      <form ref={formRef} className='register__form' onSubmit={handleSubmit}>
+      <form ref={formRef} className='register__form my-form' onSubmit={handleSubmit}>
         <div className='register__inputConiainer'>
           <label className='register__inputTitle'>Имя</label>
-          <input name='name' onChange={handleChange} className='register__input' placeholder='Виталий' required minLength={2} maxLength={40}></input>
+          <input id='name' name='name' onChange={handleChange} className='register__input form__text' placeholder='Виталий' required minLength={2} maxLength={40}></input>
+          <span className="register__errorMessage name-error form__text-error"></span>
         </div>
         <div className='register__inputConiainer'>
           <label className='register__inputTitle'>E-mail</label>
-          <input name='email' onChange={handleChange}  className='register__input' placeholder='pochta@yandex.ru' required></input>
+          <input id='email' name='email' onChange={handleChange}  className='register__input form__text' placeholder='pochta@yandex.ru' required type='email'></input>
+          <span className="register__errorMessage email-error form__text-error"></span>
         </div>
         <div className='register__inputConiainer'>
           <label className='register__inputTitle'>Пароль</label>
-          <input name='password' onChange={handleChange} className='register__input' type="password" required minLength={8} maxLength={40} placeholder="••••••••••••••"></input>
+          <input id='password' name='password' onChange={handleChange} className='register__input form__text' type="password" required minLength={8} maxLength={40} placeholder="••••••••••••••"></input>
+          <span className="register__errorMessage password-error form__text-error"></span>
         </div>
-        <p className='register__errorMessage'>Что-то пошло не так...</p>
-        <button type='submit' className='register__submitButton'>Зарегистрироваться</button>
+        <p className='register__submit-error'>{submitError}</p>
+        <button type='submit' className='register__submitButton form__submit-btn form__submit-btn_inactive'>Зарегистрироваться</button>
         <p className='register__subtitle'>Уже зарегистрированы? <a href='./' className='register__subtitleLink'>Войти</a></p>
       </form>
     </main>
