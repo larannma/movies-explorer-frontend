@@ -22,6 +22,7 @@ import {  sortMovies,
           findById,
           updateLikeStatus
         } from '../../utils/sortingMovies';
+import { click } from '@testing-library/user-event/dist/click';
 
 function App() {
   // для пользователя
@@ -54,17 +55,6 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    MainApi.getUserInfo().then((res) => {
-      setCurrentUser(res);
-    }).catch((err => {
-      console.log(err)
-    }));
-    MainApi.getSavedMovies().then((res) => {
-      setSavedMovies(res);
-    })
-  }, []);
-
-  useEffect(() => {
     if (windowWidth >= 1280) {
       setInitialPreload(16);
       setItemsPreload(4)
@@ -78,22 +68,32 @@ function App() {
   }, [windowWidth]);
 
   function handleLogin(result) {
+    MainApi.getUserInfo().then((res) => {
+      setCurrentUser(res);
+    }).catch((err => {
+      console.log(err)
+    }));
+    MainApi.getSavedMovies().then((res) => {
+      setSavedMovies(res);
+    }).catch((err => {
+      console.log(err)
+    }));
     console.log(result);
     setLoggedIn(true);
     navigate("/movies", {replace: true});
   }
 
   function handleRegistration(result) {
-    console.log(result);
+    // console.log(result);
   }
 
   const handleUpdateUser = (data) => {
     console.log(data);
     MainApi.editUserInfo(data.name, data.email).then((res) => {
-      console.log(res)
+      // console.log(res)
       setCurrentUser(res);
     }).catch((err => {
-      console.log(err)
+      // console.log(err)
     }));
   }
 
@@ -206,6 +206,17 @@ function App() {
     setFilteredSavedMovies(filtered);
   }
 
+  function handleExit() {
+    console.log('LOGOUT ... ')
+    MainApi.logout().then((res => {
+      console.log(res)
+      setLoggedIn(false)
+      setCurrentUser({})
+      localStorage.clear();
+      navigate('/', {replace: true});
+    }))
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App root">
@@ -215,7 +226,7 @@ function App() {
           <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
           <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike} searchString={searchString} errorMessage={errorMessage}/>}/>
           <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} getMovies={handleSavedMoviesFilter} savedMovies={filteredSavedMovies} handleMovieLike={handleMovieUnsave} handleSwitch={handleSavedSwitch} switchStatus={savedSwitchStatus} searchString={savedSearchString}/>} />
-          <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser}/>}/>
+          <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser} onExit={handleExit}/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

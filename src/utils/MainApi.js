@@ -2,11 +2,10 @@
 const MAIN_API = 'http://localhost:3001';
 
 const _handleResponse = (res) => {
-  console.log(res.text(), 'err')
   if (res.ok){
     return res.json()
   } else {
-    return Promise.reject(`Ошибка ${res.status}`)
+    return Promise.reject(res)
   }
 }
 
@@ -21,7 +20,9 @@ export const register = (name, email, password) => {
   })
   .then(_handleResponse)
   .catch((err) => {
-    console.log(`Ошибка регистрации: ${err}`)
+    console.log(`error while register`)
+    // console.log(err.text())
+    return err
   });
 };
 
@@ -36,6 +37,9 @@ export const authorize = (email, password) => {
     body: JSON.stringify({email, password}),
   })
   .then(_handleResponse)
+  .catch(err => {
+    console.log('error while login')
+  })
 };
 
 export const editUserInfo = (name, email) => {
@@ -51,7 +55,10 @@ export const editUserInfo = (name, email) => {
       email,
     })
   })
-  .then(_handleResponse);
+  .then(_handleResponse)
+  .catch(err => {
+    console.log('error while getting user info')
+  })
 }
 
 export const getUserInfo = () => {
@@ -78,7 +85,10 @@ export const getSavedMovies = () => {
     'Content-Type': 'application/json',
   }
 })
-.then(_handleResponse);
+.then(_handleResponse)
+.catch(err => {
+  console.log('error while getting saved movies')
+})
 }
 
 export const createMovie = (country, director, duration, year, description, image, trailerLink, thumbnail, movieId, nameRU, nameEN) => {
@@ -124,3 +134,18 @@ export const deleteMovie = (movieId) => {
     console.log(`Ошибка удаления карточки: ${err}`)
   });
 };
+
+export const logout = () => {
+  return fetch(`${MAIN_API}/signout`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(_handleResponse)
+  .catch((err) => {
+    console.log(`Ошибка логаута ${err}`)
+  });
+}

@@ -6,6 +6,7 @@ import Logo from '../Logo/Logo';
 import * as MainApi from '../../utils/MainApi';
 import FormValidator from '../../utils/FormValidator'
 import config from '../../utils/constants';
+import { parseErrorMessage } from '../../utils/sortingMovies';
 
 function Register({ handleRegistration }) {
   const [ submitError, setSubmitError ] = useState('')
@@ -31,15 +32,20 @@ function Register({ handleRegistration }) {
     e.preventDefault();
     const {name, email, password } = formValue;
     MainApi.register(name, email, password).then((res) => {
-      if (res.status === 201) {
+      console.log(res)
+      if (res) {
+        console.log('TELEPORTING TO LOGIN')
         navigate('/signin', {replace: true});
         handleRegistration("success");
       } else {
+        res.text().then((err) => {
+          setSubmitError(parseErrorMessage(err))
+        })
         handleRegistration("fail");
       }
 		}
-		).catch(() => {
-      // console.log(err)
+		).catch(err => {
+      
       handleRegistration("fail");
       // setSubmitError(err)
     });
@@ -48,7 +54,6 @@ function Register({ handleRegistration }) {
   useEffect(() => {
     if (formRef.current) {
       const validator = new FormValidator(config, formRef.current);
-      // console.log(formRef.current)
       validator.enableValidation();
     }
   }, []);

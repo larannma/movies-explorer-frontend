@@ -41,3 +41,18 @@ export const updateLikeStatus = (movies, savedMovies) => {
   });
   return updatedMovies;
 }
+
+export const parseErrorMessage = (htmlString) => {
+  const errorStart = 'Error: ';
+  const errorEnd = '<br>';
+
+  const startIndex = htmlString.indexOf(errorStart);
+  const endIndex = htmlString.indexOf(errorEnd, startIndex);
+
+  if (startIndex !== -1 && endIndex !== -1) {
+    return htmlString.substring(startIndex + errorStart.length, endIndex);
+  }
+
+  return null;
+}
+

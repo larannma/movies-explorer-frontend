@@ -4,16 +4,12 @@ import Header from '../Header/Header'
 import { useNavigate } from "react-router-dom";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Profile( { isLoggedIn, handleUpdateUser }) {
+function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
 
-  const navigate = useNavigate();
-
-  function onExit() {
-    navigate('/', { replace: true });
-  }
+  // const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
