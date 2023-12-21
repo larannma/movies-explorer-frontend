@@ -32,15 +32,17 @@ function Register({ handleRegistration }) {
     e.preventDefault();
     const {name, email, password } = formValue;
     MainApi.register(name, email, password).then((res) => {
-      console.log(res)
-      if (res.status === 201) {
+      // console.log(res)
+      if (res.message === 'Пользователь успешно зарегестрирован') {
         console.log('TELEPORTING TO LOGIN')
         navigate('/signin', {replace: true});
         handleRegistration("success");
       } else {
-        res.text().then((err) => {
-          setSubmitError(parseErrorMessage(err))
-        })
+        console.log('ошибка при регистрации')
+        // res.text().then((err) => {
+        //   setSubmitError(parseErrorMessage(err))
+        // })
+        setSubmitError("Ошибка при регистрации")
         handleRegistration("fail");
       }
 		}

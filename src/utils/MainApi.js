@@ -1,5 +1,5 @@
-// const MAIN_API = 'https://api.movies.larannma.nomoredomainsmonster.ru';
-const MAIN_API = 'http://localhost:3001';
+const MAIN_API = 'https://api.movies.larannma.nomoredomainsmonster.ru';
+// const MAIN_API = 'http://localhost:3001';
 
 const _handleResponse = (res) => {
   if (res.ok){
@@ -72,7 +72,7 @@ export const getUserInfo = () => {
 })
 .then(_handleResponse)
 .catch(err => {
-  console.log(err)
+  // console.log(err)
 });
 }
 
