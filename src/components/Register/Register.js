@@ -33,7 +33,7 @@ function Register({ handleRegistration }) {
     const {name, email, password } = formValue;
     MainApi.register(name, email, password).then((res) => {
       console.log(res)
-      if (res) {
+      if (res.status === 201) {
         console.log('TELEPORTING TO LOGIN')
         navigate('/signin', {replace: true});
         handleRegistration("success");

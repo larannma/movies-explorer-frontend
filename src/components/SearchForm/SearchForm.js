@@ -1,8 +1,12 @@
 import './SearchForm.css'
 import CustomSwitch from '../CustomSwitch/CustomSwitch'
 // import { useEffect } from 'react';
+import config from '../../utils/constants';
+import FormValidator from '../../utils/FormValidator'
+import { useRef, useEffect } from 'react';
 
 function SearchForm( { getMovies, handleSwitch, switchStatus, searchString } ) {
+  const formRef = useRef(null);
 
   function onSubmit(event) {
     event.preventDefault()
@@ -12,11 +16,19 @@ function SearchForm( { getMovies, handleSwitch, switchStatus, searchString } ) {
     getMovies(formProps.name);
   }
 
+  useEffect(() => {
+    if (formRef.current) {
+      const validator = new FormValidator(config, formRef.current);
+      validator.enableValidation();
+    }
+  }, []);
+
   return (
-    <section className='search-form'>
-        <form className='search-form__container' onSubmit={onSubmit}>
-          <input className='search-form__input' type="text" id="name" name="name" placeholder={searchString ? searchString : "Фильм"} required/>
-          <button type='submit' className='search-form__submit'>Найти</button>
+    <section className='search-form my-form'>
+        <form ref={formRef} className='search-form__container' onSubmit={onSubmit}>
+          <input className='search-form__input form__text' type="text" id="name" name="name" placeholder={searchString ? searchString : "Фильм"} required/>
+          <button type='submit' className='search-form__submit form__submit-btn form__submit-btn_inactive'>Найти</button>
+          <span className="search-form__errorMessage name-error form__text-error"></span>
         </form>
         <div className='search-form__shorts'>
           <CustomSwitch handleSwitch={handleSwitch} switchStatus={switchStatus}/>

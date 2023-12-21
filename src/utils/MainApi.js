@@ -38,7 +38,7 @@ export const authorize = (email, password) => {
   })
   .then(_handleResponse)
   .catch(err => {
-    console.log('error while login')
+    console.log('error while login', err)
   })
 };
 

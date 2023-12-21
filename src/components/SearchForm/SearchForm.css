@@ -13,6 +13,7 @@
   justify-content: space-between;
   border-bottom: 1px solid #E8E8E8;
   padding-bottom: 13px;
+  position: relative;
 }
 
 .search-form__input {
@@ -49,6 +50,16 @@
 
 .search-form__submit:hover {
   opacity: 0.8;
+}
+
+/* 
+ */
+
+.search-form__errorMessage{
+  position: absolute;
+  bottom: -20px;
+  color: #FF3055;
+  font-size: 10px;
 }
 
 .search-form__shorts {

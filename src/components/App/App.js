@@ -22,7 +22,6 @@ import {  sortMovies,
           findById,
           updateLikeStatus
         } from '../../utils/sortingMovies';
-import { click } from '@testing-library/user-event/dist/click';
 
 function App() {
   // для пользователя
@@ -54,6 +53,27 @@ function App() {
 
   const navigate = useNavigate();
 
+  function resetLocalStorage(){
+    setLoggedIn(false);
+    setSwitchStatus(false);
+    setSearchString('');
+    setMoviesList([]);
+    setDisplayedItems([]);
+    setFilteredMovies([]);
+    setSavedMovies([]);
+    setFilteredSavedMovies([]);
+    setSavedSwitchStatus(false);
+    setSavedSearchString('');
+  }
+
+  useEffect(() => {
+    MainApi.getUserInfo().then((res) => {
+      setCurrentUser(res);
+    }).catch((err => {
+      console.log(err)
+    }));
+  }, []);
+
   useEffect(() => {
     if (windowWidth >= 1280) {
       setInitialPreload(16);
@@ -78,7 +98,7 @@ function App() {
     }).catch((err => {
       console.log(err)
     }));
-    console.log(result);
+    // console.log(result);
     setLoggedIn(true);
     navigate("/movies", {replace: true});
   }
@@ -212,7 +232,7 @@ function App() {
       console.log(res)
       setLoggedIn(false)
       setCurrentUser({})
-      localStorage.clear();
+      resetLocalStorage();
       navigate('/', {replace: true});
     }))
   }
