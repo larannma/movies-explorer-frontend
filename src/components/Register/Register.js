@@ -6,7 +6,7 @@ import Logo from '../Logo/Logo';
 import * as MainApi from '../../utils/MainApi';
 import FormValidator from '../../utils/FormValidator'
 import config from '../../utils/constants';
-import { parseErrorMessage } from '../../utils/sortingMovies';
+// import { parseErrorMessage } from '../../utils/sortingMovies';
 
 function Register({ handleRegistration }) {
   const [ submitError, setSubmitError ] = useState('')
