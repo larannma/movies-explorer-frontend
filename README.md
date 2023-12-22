@@ -1,3 +1,3 @@
-# movies-explorer-frontend
+Макет light-1 https://movies.larannma.nomoredomainsmonster.ru/
 
-Макет light-1
+pull request #2 (comment)
