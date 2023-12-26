@@ -26,7 +26,7 @@ function SearchForm( { getMovies, handleSwitch, switchStatus, searchString } ) {
   return (
     <section className='search-form my-form'>
         <form ref={formRef} className='search-form__container' onSubmit={onSubmit}>
-          <input className='search-form__input form__text' type="text" id="name" name="name" placeholder={searchString ? searchString : "Фильм"} required/>
+          <input className='search-form__input form__text' type="text" id="name" name="name" placeholder={searchString ? searchString : "Фильм"} required defaultValue={searchString ? searchString : ''}/>
           <button type='submit' className='search-form__submit form__submit-btn form__submit-btn_inactive'>Найти</button>
           <span className="search-form__errorMessage name-error form__text-error"></span>
         </form>

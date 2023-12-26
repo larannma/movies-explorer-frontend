@@ -4,6 +4,7 @@ import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+// import { useEffect } from 'react'
 
 function SavedMovies( { isLoggedIn, getMovies, savedMovies, handleMovieLike, handleSwitch, switchStatus, searchString }) {
 

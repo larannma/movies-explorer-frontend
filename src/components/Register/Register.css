@@ -83,6 +83,11 @@
     opacity: 0.5;
 }
 
+.form__submit-btn_inactive_same{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .register__submitButton:hover{
     opacity: 0.8;
 }

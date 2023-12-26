@@ -72,7 +72,8 @@ function App() {
     }).catch((err => {
       console.log(err)
     }));
-  }, []);
+    setFilteredSavedMovies(savedMovies)
+  }, [savedMovies]);
 
   useEffect(() => {
     if (windowWidth >= 1280) {
@@ -91,12 +92,12 @@ function App() {
     MainApi.getUserInfo().then((res) => {
       setCurrentUser(res);
     }).catch((err => {
-      console.log(err)
+      console.log(err);
     }));
     MainApi.getSavedMovies().then((res) => {
       setSavedMovies(res);
     }).catch((err => {
-      console.log(err)
+      console.log(err);
     }));
     // console.log(result);
     setLoggedIn(true);
@@ -243,9 +244,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
           <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
-          <Route path='/signup' element={<Register handleRegistration={handleRegistration}/>}/>
+          <Route path='/signup' element={<Register handleRegistration={handleRegistration} handleLogin={handleLogin}/>}/>
           <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike} searchString={searchString} errorMessage={errorMessage}/>}/>
-          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} getMovies={handleSavedMoviesFilter} savedMovies={filteredSavedMovies} handleMovieLike={handleMovieUnsave} handleSwitch={handleSavedSwitch} switchStatus={savedSwitchStatus} searchString={savedSearchString}/>} />
+          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} getMovies={handleSavedMoviesFilter} savedMovies={filteredSavedMovies} handleMovieLike={handleMovieUnsave} handleSwitch={handleSavedSwitch} switchStatus={savedSwitchStatus} searchString={''}/>} />
           <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser} onExit={handleExit}/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>

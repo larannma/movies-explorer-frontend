@@ -8,7 +8,7 @@ import FormValidator from '../../utils/FormValidator'
 import config from '../../utils/constants';
 // import { parseErrorMessage } from '../../utils/sortingMovies';
 
-function Register({ handleRegistration }) {
+function Register({ handleRegistration, handleLogin }) {
   const [ submitError, setSubmitError ] = useState('')
   const navigate = useNavigate();
   const formRef = useRef(null);
@@ -28,13 +28,33 @@ function Register({ handleRegistration }) {
     });
   };
 
+  const isEmailValid = (email) => {
+    return email.endsWith('.com') || email.endsWith('.ru') || email.endsWith('.net') || email.endsWith('.org');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const {name, email, password } = formValue;
+
+    if (!isEmailValid(email)) {
+      setSubmitError('Пожалуйста, введите корректный адрес электронной почты');
+      return;
+    }
+
     MainApi.register(name, email, password).then((res) => {
       // console.log(res)
       if (res.message === 'Пользователь успешно зарегестрирован') {
-        console.log('TELEPORTING TO LOGIN')
+        console.log('TELEPORTING TO LOGIN');
+        // Loging in
+        MainApi.authorize(email, password)
+          .then((data) => {
+            if (data.token){
+                setFormValue({email: '', password: ''});
+                handleLogin("секретный токен получен");
+              }
+          })
+          .catch(err => setSubmitError("Логин или пароль введены неверно"));
+        // 
         navigate('/signin', {replace: true});
         handleRegistration("success");
       } else {

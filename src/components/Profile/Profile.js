@@ -11,6 +11,7 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [isSubmitButtonActive, setSubmitButtonActive] = React.useState(false);
 
   const formRef = useRef(null);
 
@@ -25,15 +26,24 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
   React.useEffect(() => {
     setName(currentUser.name ?? "");
     setEmail(currentUser.email ?? "");
-
   }, [currentUser]);
 
   function handleNameChange(e) {
     setName(e.target.value);
+    if (e.target.value === currentUser.name) {
+      setSubmitButtonActive(false)
+    } else {
+      setSubmitButtonActive(true)
+    }
   }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
+    if (e.target.value === currentUser.email) {
+      setSubmitButtonActive(false)
+    } else {
+      setSubmitButtonActive(true)
+    }
   }
 
   useEffect(() => {
@@ -61,8 +71,8 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
             </div>
             <span className="profile__errorMessage name-error email-error form__text-error"></span>
             <div className='profile__buttonContainer'>
-              <p className='profile__submit-error'></p>
-              <button type='submit' className='profile__editButton profile__button form__submit-btn form__submit-btn_inactive'>Редактировать</button>
+              <p className='profile__submit-error'>ывавыа</p>
+              <button type='submit' className={`profile__editButton profile__button form__submit-btn form__submit-btn_inactive ${isSubmitButtonActive ? '' : 'form__submit-btn_inactive_same'}`}>Редактировать</button>
               <button type='button' className='profile__exitButton profile__button' onClick={onExit} >Выйти из аккаунта</button>
             </div>
             </form>
