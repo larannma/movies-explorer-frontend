@@ -76,12 +76,16 @@ function App() {
   }, [savedMovies]);
 
   useEffect(() => {
+    // 4 per line
     if (windowWidth >= 1280) {
       setInitialPreload(16);
       setItemsPreload(4)
-    } else if (windowWidth >= 768 && windowWidth < 1280) {
+    } else if (windowWidth >= 990 && windowWidth < 1280) {
       setInitialPreload(12);
       setItemsPreload(3)
+    } else if (windowWidth >= 650 && windowWidth < 990) {
+      setInitialPreload(8);
+      setItemsPreload(2)
     } else {
       setInitialPreload(5);
       setItemsPreload(2);
@@ -110,12 +114,7 @@ function App() {
 
   const handleUpdateUser = (data) => {
     console.log(data);
-    MainApi.editUserInfo(data.name, data.email).then((res) => {
-      // console.log(res)
-      setCurrentUser(res);
-    }).catch((err => {
-      // console.log(err)
-    }));
+    setCurrentUser(data);
   }
 
   function handleSwitch(status){

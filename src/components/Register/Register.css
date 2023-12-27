@@ -80,12 +80,12 @@
 
 .form__submit-btn_inactive{
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
-.form__submit-btn_inactive_same{
-    pointer-events: none;
-    opacity: 0.5;
+.form__submit-btn_active{
+    pointer-events:all;
+    opacity: 1;
 }
 
 .register__submitButton:hover{

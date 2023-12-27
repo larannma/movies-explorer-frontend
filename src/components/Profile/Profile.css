@@ -82,6 +82,10 @@
   gap: 16px;
 }
 
+.profile__submit-error_success{
+  color: #2BE080;
+}
+
 .profile__button {
   font-size: 13px;
   font-weight: 400;

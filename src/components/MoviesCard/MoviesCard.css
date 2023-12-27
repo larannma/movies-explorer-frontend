@@ -49,8 +49,14 @@
   background-image: url(../../images/save1.svg);
 }
 
+.movie-card__unsaveButton{
+  background-image: url(../../images/unsave.svg);
+  opacity: 0.2;
+}
+
 .movie-card__unsaveButton:hover {
   background-image: url(../../images/unsave.svg);
+  opacity: 1;
 }
 
 
