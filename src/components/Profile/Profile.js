@@ -26,6 +26,8 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitError('');
+    setSubmitSuccess('')
     if (!isEmailValid(email)) {
       setSubmitButtonActive(false);
       setSubmitError('Пожалуйста, введите корректный адрес электронной почты');
