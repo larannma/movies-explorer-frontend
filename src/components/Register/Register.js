@@ -6,6 +6,7 @@ import Logo from '../Logo/Logo';
 import * as MainApi from '../../utils/MainApi';
 import FormValidator from '../../utils/FormValidator'
 import config from '../../utils/constants';
+import { isEmail } from 'validator';
 // import { parseErrorMessage } from '../../utils/sortingMovies';
 
 function Register({ handleRegistration, handleLogin }) {
@@ -23,7 +24,7 @@ function Register({ handleRegistration, handleLogin }) {
   const handleChange = (e) => {
     const {name, value} = e.target;
     if (name === 'email') {
-      setValid(isEmailValid(value));
+      setValid(isEmail(value));
     }
     setFormValue({
       ...formValue,
@@ -95,7 +96,7 @@ function Register({ handleRegistration, handleLogin }) {
         </div>
         <div className='register__inputConiainer'>
           <label className='register__inputTitle'>E-mail</label>
-          <input id='email' name='email' onChange={handleChange}  className='register__input form__text' placeholder='pochta@yandex.ru' required type='email' ></input>
+          <input id='email' name='email' onChange={handleChange}  className='register__input form__text' placeholder='pochta@yandex.ru' required type='email'></input>
           <span className="register__errorMessage email-error form__text-error"></span>
         </div>
         <div className='register__inputConiainer'>
@@ -104,7 +105,7 @@ function Register({ handleRegistration, handleLogin }) {
           <span className="register__errorMessage password-error form__text-error"></span>
         </div>
         <p className='register__submit-error'>{submitError}</p>
-        <button type='submit' className={`register__submitButton form__submit-btn form__submit-btn_inactive ${isValid ? 'form__submit-btn' : 'form__submit-btn_inactive_aditionalRegister'}` }>Зарегистрироваться</button>
+        <button type='submit' className={`register__submitButton form__submit-btn form__submit-btn_inactive ${isValid ? 'form__submit-btn' : 'form__submit-btn_inactive_aditionalRegister'}`}>Зарегистрироваться</button>
         <p className='register__subtitle'>Уже зарегистрированы? <a href='./' className='register__subtitleLink'>Войти</a></p>
       </form>
     </main>
