@@ -80,11 +80,27 @@
 
 .form__submit-btn_inactive{
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.4;
+}
+
+.form__submit-btn_inactive_aditional{
+    pointer-events: none;
+    opacity: 0.4;
+    color: #000;
+}
+
+.form__submit-btn_active_aditionalRegister{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.form__submit-btn_inactive_aditionalRegister{
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 .form__submit-btn_active{
-    pointer-events:all;
+    pointer-events: all;
     opacity: 1;
 }
 

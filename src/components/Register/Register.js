@@ -9,7 +9,8 @@ import config from '../../utils/constants';
 // import { parseErrorMessage } from '../../utils/sortingMovies';
 
 function Register({ handleRegistration, handleLogin }) {
-  const [ submitError, setSubmitError ] = useState('')
+  const [ submitError, setSubmitError ] = useState('');
+  const [ isValid, setValid ] = useState(false);
   const navigate = useNavigate();
   const formRef = useRef(null);
 
@@ -21,7 +22,9 @@ function Register({ handleRegistration, handleLogin }) {
 
   const handleChange = (e) => {
     const {name, value} = e.target;
-
+    if (name === 'email') {
+      setValid(isEmailValid(value));
+    }
     setFormValue({
       ...formValue,
       [name]: value
@@ -101,7 +104,7 @@ function Register({ handleRegistration, handleLogin }) {
           <span className="register__errorMessage password-error form__text-error"></span>
         </div>
         <p className='register__submit-error'>{submitError}</p>
-        <button type='submit' className='register__submitButton form__submit-btn form__submit-btn_inactive'>Зарегистрироваться</button>
+        <button type='submit' className={`register__submitButton form__submit-btn form__submit-btn_inactive ${isValid ? 'form__submit-btn' : 'form__submit-btn_inactive_aditionalRegister'}` }>Зарегистрироваться</button>
         <p className='register__subtitle'>Уже зарегистрированы? <a href='./' className='register__subtitleLink'>Войти</a></p>
       </form>
     </main>

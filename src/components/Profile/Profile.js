@@ -51,8 +51,8 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
     setEmail(currentUser.email ?? "");
   }, [currentUser]);
 
-
   function isValid(nameValue, emailValue){
+    // console.log(isEmailValid(emailValue))
     if (nameValue === currentUser.name && emailValue === currentUser.email){
       return false;
     }
@@ -67,6 +67,10 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
   function handleEmailChange(e) {
     setSubmitButtonActive(isValid(name, e.target.value));
     setEmail(e.target.value);
+
+    if(!isEmailValid(e.target.value)){
+      setSubmitButtonActive(false);
+    }
   }
 
   useEffect(() => {
@@ -96,7 +100,7 @@ function Profile( { isLoggedIn, handleUpdateUser, onExit }) {
             <div className='profile__buttonContainer'>
               <p className='profile__submit-error profile__submit-error_success'>{submitSuccess}</p>
               <p className='profile__submit-error'>{submitError}</p>
-              <button type='submit' className={`profile__editButton profile__button form__submit-btn form__submit-btn_inactive ${isSubmitButtonActive ? 'form__submit-btn_active' : ''}`}>Редактировать</button>
+              <button type='submit' className={`profile__editButton profile__button form__submit-btn form__submit-btn_inactive ${isSubmitButtonActive ? 'form__submit-btn_active' : 'form__submit-btn_inactive_aditional'}`}>Редактировать</button>
               <button type='button' className='profile__exitButton profile__button' onClick={onExit} >Выйти из аккаунта</button>
             </div>
             </form>

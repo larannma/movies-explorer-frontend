@@ -66,13 +66,20 @@ function App() {
     setSavedSearchString('');
   }
 
+  function getSaved() {
+    setSavedSearchString('')
+    setFilteredSavedMovies(savedMovies, '', savedSwitchStatus);
+  }
+
   useEffect(() => {
     MainApi.getUserInfo().then((res) => {
       setCurrentUser(res);
     }).catch((err => {
       console.log(err)
     }));
-    setFilteredSavedMovies(savedMovies)
+    // 
+    // setFilteredSavedMovies(savedMovies)
+    // setFilteredSavedMovies(savedMovies, '', savedSwitchStatus)
   }, [savedMovies]);
 
   useEffect(() => {
@@ -156,18 +163,18 @@ function App() {
   }
 
   function handleMovieUnsave(movie) {
-    // console.log(movie)
     let realId = findById(movie.movieId, savedMovies);
-    // console.log(realId)
       MainApi.deleteMovie(realId)
       .then((res) => {
-        // console.log(res)
         if (res) {
           const updatedSaved = savedMovies.filter(item => item._id !== res._id);
           setSavedMovies(updatedSaved)
           // update filtered saved movies
-          const updatedFilteredSaved = filteredSavedMovies.filter(item => item._id !== res._id);
-          setFilteredSavedMovies(updatedFilteredSaved)
+          // const updatedFilteredSaved = updatedSaved.filter(item => item._id !== res._id);
+          // console.log(savedSearchString, savedSwitchStatus)
+          // const updatedFilteredSaved = sortMovies(updatedSaved, savedSearchString, savedSwitchStatus);
+          // console.log(updatedSaved, updatedFilteredSaved)
+          setFilteredSavedMovies(sortMovies(updatedSaved, savedSearchString, savedSwitchStatus))
           setMoviesList(updateLikeStatus(moviesList, updatedSaved))
           setFilteredMovies(updateLikeStatus(filteredMovies, updatedSaved))
           setDisplayedItems(updateLikeStatus(displayedItems, updatedSaved))
@@ -224,6 +231,7 @@ function App() {
     setSavedSwitchStatus(value);
     let filtered = sortMovies(savedMovies, savedSearchString, value);
     setFilteredSavedMovies(filtered);
+    // console.log(savedSearchString)
   }
 
   function handleExit() {
@@ -245,7 +253,7 @@ function App() {
           <Route path='/signin' element={<Login handleLogin={handleLogin}/>}/>
           <Route path='/signup' element={<Register handleRegistration={handleRegistration} handleLogin={handleLogin}/>}/>
           <Route path='/movies' element={<ProtectedRouteElement element={Movies} isLoggedIn={isLoggedIn} getMovies={getBeatMovies} moviesList={filteredMovies} displayedItems={displayedItems} isPreloaderDisplayed={isPreloaderDisplayed} loadMore={loadMore} handleSwitch={handleSwitch} switchStatus={switchStatus} handleMovieLike={handleMovieLike} searchString={searchString} errorMessage={errorMessage}/>}/>
-          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} getMovies={handleSavedMoviesFilter} savedMovies={filteredSavedMovies} handleMovieLike={handleMovieUnsave} handleSwitch={handleSavedSwitch} switchStatus={savedSwitchStatus} searchString={''}/>} />
+          <Route path='/saved-movies' element={<ProtectedRouteElement element={SavedMovies} isLoggedIn={isLoggedIn} getMovies={handleSavedMoviesFilter} savedMovies={filteredSavedMovies} handleMovieLike={handleMovieUnsave} handleSwitch={handleSavedSwitch} switchStatus={savedSwitchStatus} searchString={''} getSaved={getSaved}/>} />
           <Route path='/profile' element={<ProtectedRouteElement element={Profile} isLoggedIn={isLoggedIn} handleUpdateUser={handleUpdateUser} onExit={handleExit}/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
