@@ -95,7 +95,7 @@ function Register({ handleRegistration, handleLogin }) {
         </div>
         <div className='register__inputConiainer'>
           <label className='register__inputTitle'>E-mail</label>
-          <input id='email' name='email' onChange={handleChange}  className='register__input form__text' placeholder='pochta@yandex.ru' required type='email'></input>
+          <input id='email' name='email' onChange={handleChange}  className='register__input form__text' placeholder='pochta@yandex.ru' required type='email' ></input>
           <span className="register__errorMessage email-error form__text-error"></span>
         </div>
         <div className='register__inputConiainer'>
