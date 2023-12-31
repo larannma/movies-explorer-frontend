@@ -7,6 +7,11 @@
   margin: 0 auto;
 }
 
+.movie-card:hover .movie-card__unsaveButton {
+  /* background-image: url(../../images/unsave.svg); */
+  opacity: 1;
+}
+
 .movie-card__image {
   width: 100%;
   height: 151px;
@@ -41,12 +46,23 @@
   transition: background-image 0.2s ease-in-out;
 }
 
+.movie-card__savedLike {
+  background-image: url(../../images/save1.svg);
+}
+
 .movie-card__saveButton:hover {
   background-image: url(../../images/save1.svg);
 }
 
+.movie-card__unsaveButton{
+  background-image: url(../../images/unsave.svg);
+  /* display: none; */
+  opacity: 0;
+}
+
 .movie-card__unsaveButton:hover {
   background-image: url(../../images/unsave.svg);
+  opacity: 1;
 }
 
 
@@ -75,5 +91,11 @@
 
   .movie-card__name{
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .movie-card__unsaveButton{
+    opacity: 1;
   }
 }

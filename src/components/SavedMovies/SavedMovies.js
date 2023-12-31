@@ -4,17 +4,22 @@ import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import { useEffect } from 'react'
 
-function SavedMovies() {
+function SavedMovies( { isLoggedIn, getMovies, savedMovies, handleMovieLike, handleSwitch, switchStatus, searchString, getSaved }) {
+
+  useEffect(() => {
+    getSaved();
+  }, [])
+
   return (
     <>
     <div className='content'>
-      <Header headerColor={'light'}/>
+      <Header headerColor={'light'} isLoggedIn={isLoggedIn}/>
       <main className='saved-movies'>
-        <SearchForm/>
-        <MoviesCardList/>
+        <SearchForm getMovies={getMovies} handleSwitch={handleSwitch} switchStatus={switchStatus} searchString={searchString}/>
+        <MoviesCardList displayedItems={savedMovies} handleMovieLike={handleMovieLike}/>
         {/* <Preloader/> */}
-        <button className='saved-movies__moreButton' type='button'>Еще</button>
       </main>
     </div>
     <Footer/>

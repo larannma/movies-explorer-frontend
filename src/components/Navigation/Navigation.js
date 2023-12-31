@@ -1,21 +1,12 @@
+import { Link } from 'react-router-dom'
 import './Navigation.css'
-// import { useNavigate } from "react-router-dom";
 
 function Navigation({ isBurgerMenu, isThemeLight }) {
-    // const navigate = useNavigate();
-
-    // function goMovies() {
-    //     navigate('/movies', { replace: true });
-    // }
-
-    // function goSavedMovies() {
-    //     navigate('/saved-movies', { replace: true });
-    // }
 
     return (
     <nav className={`navigation ${isBurgerMenu ? 'navigation_side' : ''}`}>
-        <a href='./movies'  className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Фильмы</a>
-        <a href='./saved-movies' className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Сохранённые фильмы</a>
+        <Link to='/movies'  className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Фильмы</Link>
+        <Link to='/saved-movies' className={`navigation__item ${isBurgerMenu ? 'navigation__item_theme_light navigation__bold' : ''} ${isThemeLight === 'light' ? 'navigation__item_theme_light' : ''}`}>Сохранённые фильмы</Link>
     </nav>
     )
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import useScreenWidth from '../useScreenWidth'
+import useScreenWidth from '../../utils/customHooks/useScreenWidth'
 import './Header.css'
 
 import AccountButton from "../AccountButton/AccountButton";
@@ -8,7 +8,7 @@ import Menu from '../Menu/Menu';
 import Logo from "../Logo/Logo";
 import { useNavigate } from "react-router-dom";
 
-function Header({ headerColor }) {
+function Header({ headerColor, isLoggedIn }) {
   const [isMenuOpen, setMenu] = React.useState(false);
   // const [isLoggedIn, setLoggedIn] = React.useState(true)
   const [isBurgerMenu, setBurgerMenu] = React.useState(false)
@@ -16,7 +16,6 @@ function Header({ headerColor }) {
 
   const navigate = useNavigate();
 
-  const isLoggedIn = true;
 
   React.useEffect(() => {
     setBurgerMenu(windowWidth <= 768);

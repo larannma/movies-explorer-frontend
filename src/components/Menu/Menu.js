@@ -1,7 +1,7 @@
 import './Menu.css'
 import Navigation from '../Navigation/Navigation'
 import AccountButton from '../AccountButton/AccountButton'
-import useScreenWidth from '../useScreenWidth'
+import useScreenWidth from '../../utils/customHooks/useScreenWidth'
 
 function Menu({ isOpen, handleMenu, isBurgerMenu }) {
   const windowWidth = useScreenWidth();

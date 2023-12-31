@@ -1,10 +1,17 @@
 import './CustomSwitch.css'
 
-function CustomSwitch() {
+function CustomSwitch({ handleSwitch, switchStatus }) {
+
+  function onSwitchChange(){
+    const customSwitch = document.querySelector('.shorts').checked;
+    handleSwitch(customSwitch)
+    // console.log(customSwitch)
+  }
+
   return (
-    <label class="switch">
-      <input type="checkbox"/>
-      <span class="slider round"></span>
+    <label className="switch">
+      <input onChange={onSwitchChange} className='shorts' id='shorts' name='shorts' type="checkbox" checked={switchStatus}/>
+      <span className="slider round"></span>
     </label>
   )
 }

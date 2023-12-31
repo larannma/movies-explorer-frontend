@@ -24,8 +24,12 @@
 
 .register__inputConiainer {
     padding-bottom: 10px;
-    border-bottom: 1px solid #E8E8E8;
     margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+    position: relative;
+    margin-bottom: 6px;
 }
 
 .register__inputConiainer:nth-child(3){
@@ -43,15 +47,22 @@
 
 .register__input {
     padding: 0;
+    padding-bottom: 10px;
     color: #000;
     border: none;
     font-size: 14px;
     font-weight: 400;
+    border-bottom: 1px solid #E8E8E8;
 }
 
 .register__input:focus{
     outline: none;
     border-bottom: 1px solid #2BE080;
+}
+
+.form__text_type_invalid{
+    border-bottom: 1px solid #FF3055;
+    color: #FF3055;
 }
 
 .register__submitButton {
@@ -65,6 +76,32 @@
     color: #fff;
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
+}
+
+.form__submit-btn_inactive{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.form__submit-btn_inactive_aditional{
+    pointer-events: none;
+    opacity: 0.4;
+    color: #000;
+}
+
+.form__submit-btn_active_aditionalRegister{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.form__submit-btn_inactive_aditionalRegister{
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.form__submit-btn_active{
+    pointer-events: all;
+    opacity: 1;
 }
 
 .register__submitButton:hover{
@@ -95,10 +132,26 @@
     opacity: 0.7;
 }
 
+.register__input-error{
+    color: #FF3055;
+}
+
 .register__errorMessage {
     margin: 0;
     color: #FF3055;
     font-size: 10px;
+    /* position: absolute; */
+    /* bottom: -5px; */
+    min-height: 24px;
+    margin-top: 5px;
+}
+
+.register__submit-error{
+    margin: 0;
+    color: #FF3055;
+    font-size: 10px;
+    text-align: center;
+    height: 10px;
 }
 
 @media (max-width: 768px){
